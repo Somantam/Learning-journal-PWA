@@ -1,0 +1,239 @@
+/* ======================================================== */
+/* FGCT6021 MOBILE APPLICATION DEVELOPMENT                  */
+/* LAB 2: Frontend Fundamentals - Mobile-First CSS Styling  */
+/* ======================================================== */
+
+/* 1. Global Reset, Variables, and Base Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Color Palette */
+    --primary-color: #0069d9; /* Deep Blue for accents and highlights */
+    --secondary-color: #3f51b5; /* Complementary dark color (Footer/Headings) */
+    --background-color: #f8f9fa; /* Very light, clean body background */
+    --surface-color: #ffffff; /* White for content boxes/cards */
+    --text-color: #212529; /* Dark gray for body text */
+    
+    /* Typography and Spacing */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft, subtle shadow */
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    
+    /* Layout using Flexbox: Ensures footer sticks to the bottom (Mobile-First) */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+main {
+    flex-grow: 1; /* Pushes the footer down */
+    padding: 1em; /* Mobile padding */
+}
+
+/* Headings and Links */
+h1, h2, h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* --- Content Sections (Card-like appearance & Interactive Hover) --- */
+section, article {
+    background-color: var(--surface-color);
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow); 
+    
+    /* Enable smooth transitions for hover effects */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Hover Effect: Lifts the card and deepens the shadow */
+section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    cursor: pointer; 
+}
+
+/* Lists */
+ul {
+    padding-left: 1.5em;
+    list-style: disc;
+}
+li {
+    margin-bottom: 0.5em;
+}
+
+/* ======================================================== */
+/* 2. Navigation Bar (Mobile Default)                       */
+/* ======================================================== */
+header {
+    background: var(--surface-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding: 0.5em 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* VERTICAL stack for mobile */
+    gap: 0;
+    width: 100%;
+}
+
+nav a {
+    text-align: center;
+    color: var(--text-color);
+    padding: 0.8em 1em;
+    display: block;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Added transform */
+}
+
+/* Active Page Styling */
+nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+nav a:not(.active):hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02); /* Slight scale on hover */
+}
+
+/* ======================================================== */
+/* 3. Homepage Specific Styling (Interactive Elements)      */
+/* ======================================================== */
+
+/* Keyframe Animation for H1 heading */
+@keyframes slideInFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#hero {
+    text-align: center;
+    padding: 3em 1.5em;
+    margin-bottom: 2em;
+    background: linear-gradient(135deg, var(--surface-color) 0%, #ffffff 100%); /* Subtle gradient */
+}
+
+#hero h1 {
+    animation: slideInFade 1s ease-out; /* Apply the animation */
+    font-size: 2em; /* Bigger font for mobile */
+}
+
+/* Call-to-action button styling */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 0.8em 1.5em;
+    border-radius: 4px;
+    margin-top: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); /* Button scales slightly on hover */
+}
+
+/* Quick Links Grid */
+.link-grid {
+    display: flex;
+    flex-direction: column; /* Stack vertically for mobile */
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.link-card {
+    display: block;
+    text-align: center;
+    padding: 1.5em;
+    background-color: #e9ecef; 
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    color: var(--text-color); /* Ensure text color remains readable */
+}
+
+.link-card:hover {
+    background-color: #dee2e6;
+    transform: translateY(-2px);
+}
+
+
+/* ======================================================== */
+/* 4. Footer Styling                                        */
+/* ======================================================== */
+footer {
+    background: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    padding: 1.5em;
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+
+/* ======================================================== */
+/* 5. Media Query for Desktop (min-width: 768px)            */
+/* ======================================================== */
+@media (min-width: 768px) {
+    
+    /* Navigation layout change */
+    nav ul {
+        flex-direction: row; /* Horizontal links */
+        justify-content: center;
+    }
+    nav a {
+        border-bottom: none; 
+        border-radius: 50px; /* Pill-shaped buttons */
+        padding: 0.5em 1.5em;
+    }
+    nav a.active {
+        border-radius: 50px;
+    }
+
+    /* Main Content Centering and Max-Width */
+    main {
+        max-width: 1100px; 
+        margin: 2em auto; 
+        padding: 2em;
+    }
+    
+    #hero h1 {
+        font-size: 3em; /* Larger font on desktop */
+    }
+    
+    /* Quick Links Grid adjustment */
+    .link-grid {
+        flex-direction: row; 
+    }
+    
+    .link-card {
+        flex-basis: 50%; 
+    }
+}
