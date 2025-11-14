@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal | Learning Journal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> 
+                <li class="active"><a href="journal.html" class="active">Journal</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Weekly Learning Journal</h1>
+        <p>This is where I document my weekly learning progress and answer the required unit questions.</p>
+        
+        <article>
+            <h2>Week 2: Frontend Fundamentals</h2>
+            
+            <h3>1. How did you approach mobile-first design?</h3>
+            <p>I approached mobile-first design by following the principle of progressive enhancement. I started by setting up a minimal layout and styling optimized for the narrowest screen width (mobile phones) without using any media queries. I then used a single media query (`@media (min-width: 768px)`) to apply specific styles for larger devices, such as switching the navigation to a horizontal row and centering the main content. This ensures a fast loading time for mobile users.</p>
+            
+            <h3>2. What was the most useful HTML or CSS concept you applied this week?</h3>
+            <p>The most useful CSS concept I applied this week was Flexbox. I used Flexbox heavily to handle the responsive layout requirements, specifically on the `<body>` element to ensure the footer stays fixed at the bottom, and to manage the dynamic shift of the navigation bar from a vertical stack on mobile to a horizontal row on desktop within the media query.</p>
+            
+            <h3>3. What part of HTML or CSS did you find most challenging or confusing?</h3>
+            <p>The most challenging part of CSS was fully grasping the correct implementation of the mobile-first mindset. It was initially confusing to intentionally design a basic, small layout first and then design for the desktop. Understanding where to place the universal styles (outside the media query) and where to place the complex, desktop-specific styles (inside the media query) was the key hurdle.</p>
+        </article>
+
+        <article>
+            <h2>Week 1: Introduction (Temperature Converter PWA)</h2>
+            
+            <h3>Reflection on Steps Followed</h3>
+            <p>This lab focused on getting familiar with tools and platforms for multi-platform development, centered around building a Temperature Converter PWA.</p>
+            
+            <ul>
+                <li>GitHub & VS Code: I created the repository and used the GitHub Repositories extension in VS Code to easily manage commits and pushes directly to the main branch.</li>
+                <li>PWA Fundamentals: I implemented core PWA components: the HTML app structure, the JavaScript converter logic, and the styling.</li>
+                <li>Installability & Offline: The app was made installable by adding the `manifest.json` file, and offline capability was added by registering a `sw.js` Service Worker.</li>
+                <li>Deployment: The project was deployed publicly using GitHub Pages and also hosted on PythonAnywhere to understand the difference between static hosting (GitHub Pages) and environments that support server-side logic.</li>
+                <li>Mobile Platforms: I downloaded and ran the provided Kotlin code in Android Studio to understand native application structure and execution.</li>
+            </ul>
+
+            <h3>Challenges Faced</h3>
+            <p>The main challenge was ensuring all the file paths were correct for the PWA components. When implementing the Service Worker, the paths in `index.html` (for the manifest and service worker registration) and within `sw.js` (for caching resources) had to be carefully checked. This was solved by confirming the correct use of relative paths (e.g., `./` vs `/`) for all links and registrations.</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
