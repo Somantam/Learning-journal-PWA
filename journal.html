@@ -38,21 +38,21 @@
             <ul>
                 <li>Storage API: I chose Local Storage to persist the theme preference and save the latest journal entry. I chose it for its simplicity and directness in storing small amounts of data across browser sessions.</li>
                 <li>Browser API: I chose the Notifications API to provide direct user feedback (confirming a successful entry save). This enhances the PWA feel by moving confirmation away from simple pop-ups.</li>
-                <li>Third-Party API: I chose the ZenQuotes API to fetch a "Quote of the Day" for the homepage. I chose this because it is free, keyless, and demonstrates external data fetching using the Fetch API without requiring complex authentication.</li>
+                <li>Third-Party API: I chose the **Advice Slip API** to fetch a piece of daily wisdom for the homepage. I chose this because it is free, keyless, and demonstrates external data fetching using the Fetch API without requiring complex authentication.</li>
             </ul>
             
             <h3>2. How did you integrate each API with DOM manipulation?</h3>
             <ul>
                 <li>Local Storage: Integrated with the DOM by reading the `themePreference` on page load to set the `<body>` class, and by reading/writing the content in the `#saved-entry-display` div.</li>
                 <li>Notifications API: Integrated via a user event (submit on the form), where the successful saving triggers a notification that uses the PWA's icon for better branding.</li>
-                <li>ZenQuotes API: Integrated by using the `fetch` results to dynamically populate the `innerHTML` of the `#quote-container` element on the homepage.</li>
+                <li>Third-Party API: Integrated by using the `fetch` results to dynamically populate the `innerHTML` of the `#quote-container` element on the homepage.</li>
             </ul>
             
             <h3>3. What challenges did you encounter, and how did you solve them?</h3>
             <p>The main challenges were debugging the fetch API security blocks and handling the modular JavaScript file dependencies. The fetch API failed when testing locally due to CORS issues; this was solved by committing and pushing the code to GitHub Pages for testing over a secure HTTPS connection. The dependency issue was solved by strictly ensuring that files defining functions (e.g., `storage.js`) were linked in the HTML before the files that called those functions (e.g., `browser.js`).</p>
 
             <h3>4. In what ways do these APIs improve your Learning Journal PWA?</h3>
-            <p>The APIs significantly improve the PWA by providing persistence (theme/entry storage), user engagement (notifications), and dynamic content (quote of the day). The PWA now feels less like a static webpage and more like a proper application that remembers the user and provides current, relevant content.</p>
+            <p>The APIs significantly improve the PWA by providing persistence (theme/entry storage), user engagement (notifications), and dynamic content (daily wisdom/advice). The PWA now feels less like a static webpage and more like a proper application that remembers the user and provides current, relevant content.</p>
         </article>
         
         <article>
