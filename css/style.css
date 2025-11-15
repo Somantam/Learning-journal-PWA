@@ -1,6 +1,6 @@
 /* ======================================================== */
 /* FGCT6021 MOBILE APPLICATION DEVELOPMENT                  */
-/* LAB 2: Frontend Fundamentals - Mobile-First CSS Styling  */
+/* LAB 4: Frontend Fundamentals & API Styling               */
 /* ======================================================== */
 
 /* 1. Global Reset, Variables, and Base Typography */
@@ -93,6 +93,10 @@ header {
     background: var(--surface-color);
     border-bottom: 2px solid var(--primary-color);
     padding: 0.5em 0;
+    /* Ensure header uses flex to position nav and button */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
 }
 
 nav ul {
@@ -109,7 +113,7 @@ nav a {
     padding: 0.8em 1em;
     display: block;
     border-bottom: 1px solid #eee;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Added transform */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 /* Active Page Styling */
@@ -121,8 +125,25 @@ nav a.active {
 
 nav a:not(.active):hover {
     background-color: #f0f0f0;
-    transform: scale(1.02); /* Slight scale on hover */
+    transform: scale(1.02); 
 }
+
+/* --- Theme Toggle Button Styling --- */
+#theme-toggle {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0.5em 0; /* Space it out slightly */
+    transition: background-color 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: #304190;
+}
+
 
 /* ======================================================== */
 /* 3. Homepage Specific Styling (Interactive Elements)      */
@@ -138,12 +159,12 @@ nav a:not(.active):hover {
     text-align: center;
     padding: 3em 1.5em;
     margin-bottom: 2em;
-    background: linear-gradient(135deg, var(--surface-color) 0%, #ffffff 100%); /* Subtle gradient */
+    background: linear-gradient(135deg, var(--surface-color) 0%, #ffffff 100%);
 }
 
 #hero h1 {
-    animation: slideInFade 1s ease-out; /* Apply the animation */
-    font-size: 2em; /* Bigger font for mobile */
+    animation: slideInFade 1s ease-out;
+    font-size: 2em;
 }
 
 /* Call-to-action button styling */
@@ -155,17 +176,18 @@ nav a:not(.active):hover {
     border-radius: 4px;
     margin-top: 1em;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none; /* Ensure buttons look consistent */
 }
 
 .cta-button:hover {
     background-color: #0056b3; 
-    transform: scale(1.05); /* Button scales slightly on hover */
+    transform: scale(1.05);
 }
 
 /* Quick Links Grid */
 .link-grid {
     display: flex;
-    flex-direction: column; /* Stack vertically for mobile */
+    flex-direction: column;
     gap: 1em;
     margin-top: 1em;
 }
@@ -177,12 +199,35 @@ nav a:not(.active):hover {
     background-color: #e9ecef; 
     border-radius: var(--border-radius);
     transition: background-color 0.3s ease, transform 0.3s ease;
-    color: var(--text-color); /* Ensure text color remains readable */
+    color: var(--text-color);
 }
 
 .link-card:hover {
     background-color: #dee2e6;
     transform: translateY(-2px);
+}
+
+/* --- LAB 4: Journal Input Form Fixes and Styling --- */
+
+/* FIX: Restrict the label's clickable area to stop selecting the whole box */
+#entry-form label {
+    display: inline-block; /* Makes the label only take up the width of its content */
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+/* Style the textarea */
+#new-entry-text {
+    /* Use variables for consistency */
+    background-color: var(--surface-color); 
+    color: var(--text-color);
+}
+
+/* Style the retrieved entry box */
+#saved-entry-display {
+    border: 1px dashed var(--primary-color) !important; 
+    padding: 1em;
+    border-radius: var(--border-radius);
 }
 
 
@@ -194,7 +239,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1.5em;
-    margin-top: auto; /* Pushes the footer to the bottom */
+    margin-top: auto;
 }
 
 
@@ -203,14 +248,23 @@ footer {
 /* ======================================================== */
 @media (min-width: 768px) {
     
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5em 2em;
+    }
+    nav ul {
+        flex-direction: row;
+        width: auto;
+    }
+    
     /* Navigation layout change */
     nav ul {
-        flex-direction: row; /* Horizontal links */
         justify-content: center;
     }
     nav a {
         border-bottom: none; 
-        border-radius: 50px; /* Pill-shaped buttons */
+        border-radius: 50px;
         padding: 0.5em 1.5em;
     }
     nav a.active {
@@ -225,7 +279,7 @@ footer {
     }
     
     #hero h1 {
-        font-size: 3em; /* Larger font on desktop */
+        font-size: 3em;
     }
     
     /* Quick Links Grid adjustment */
@@ -236,4 +290,54 @@ footer {
     .link-card {
         flex-basis: 50%; 
     }
+}
+
+/* --- DARK MODE THEME (UPDATED) --- */
+.dark-mode {
+    /* Define dark colors */
+    --primary-color: #4db8ff;
+    --secondary-color: #9fa8da;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.4); 
+    
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Ensure structural elements inherit dark mode surface color */
+.dark-mode section, 
+.dark-mode article, 
+.dark-mode header, 
+.dark-mode footer,
+.dark-mode .link-card {
+    background-color: var(--surface-color);
+}
+.dark-mode footer {
+    background-color: var(--secondary-color);
+}
+
+/* Ensure form elements and text are readable */
+.dark-mode #new-entry-text {
+    background-color: #333;
+    color: var(--text-color);
+    border-color: #555;
+}
+
+/* FIX 1: Ensure general list item text is light */
+.dark-mode li {
+    color: var(--text-color); 
+}
+
+/* FIX 2: Ensure links maintain readability and use the primary color variable */
+.dark-mode a {
+    color: var(--primary-color);
+}
+.dark-mode nav a {
+    color: var(--text-color);
+}
+.dark-mode nav a.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
 }
