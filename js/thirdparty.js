@@ -1,6 +1,6 @@
 // ========================================================
-// LAB 4: THIRD-PARTY API (Type.fit Quotes - Keyless)
-// Fetches and displays a random quote on the homepage.
+// LAB 4: THIRD-PARTY API (Advice Slip API - Keyless)
+// Fetches and displays a random piece of advice on the homepage.
 // ========================================================
 
 function fetchAndDisplayQuote() {
@@ -12,35 +12,32 @@ function fetchAndDisplayQuote() {
         return;
     }
 
-    // 2. Use the Fetch API to get data from a reliable external service
-    fetch("https://type.fit/api/quotes")
+    // 2. Use the Fetch API to get data from the external service
+    fetch("https://api.adviceslip.com/advice")
         .then(response => {
             if (!response.ok) {
-                throw new Error('Could not fetch quote: Network response was not ok');
+                // Handle network error
+                throw new Error('Network response was not ok');
             }
             // Parse the JSON response
             return response.json();
         })
         .then(data => {
-            // Pick a random quote from the array
-            const randomIndex = Math.floor(Math.random() * data.length);
-            const quoteData = data[randomIndex];
+            // 3. Extract the advice text (data returns {slip: {id, advice}})
+            const adviceText = data.slip.advice;
 
-            const quoteText = quoteData.text;
-            const author = quoteData.author || 'Unknown'; // Default author if null
-
-            // 3. DOM Manipulation: Insert the styled quote into the placeholder
+            // 4. DOM Manipulation: Insert the styled advice into the placeholder
             quoteContainer.innerHTML = `
                 <blockquote style="margin-top: 20px; font-style: italic; border-left: 4px solid var(--primary-color); padding-left: 10px;">
-                    "${quoteText}"
-                    <footer style="margin-top: 5px; font-size: 0.9em; text-align: right;">— ${author}</footer>
+                    "${adviceText}"
+                    <footer style="margin-top: 5px; font-size: 0.9em; text-align: right;">— Daily Wisdom</footer>
                 </blockquote>
             `;
         })
         .catch(error => {
-            // Display an error message if the API fails
-            console.error("Error fetching quote:", error);
-            quoteContainer.innerHTML = '<p style="color: red; margin-top: 20px;">Could not load quote of the day.</p>';
+            // Display a generic error message if the API fails
+            console.error("Error fetching advice:", error);
+            quoteContainer.innerHTML = '<p style="color: red; margin-top: 20px;">Could not load daily wisdom.</p>';
         });
 }
 
