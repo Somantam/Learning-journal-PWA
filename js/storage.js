@@ -6,7 +6,7 @@
 const THEME_KEY = 'themePreference';
 const JOURNAL_ENTRY_KEY = 'latestJournalEntry'; 
 
-// --- Theme Management (Moved from script.js) ---
+// --- Theme Management ---
 function saveTheme(theme) {
     localStorage.setItem(THEME_KEY, theme);
 }
@@ -18,16 +18,15 @@ function loadTheme() {
     }
 }
 
-// Function called by script.js when the button is clicked
 function toggleTheme() {
     const isDark = document.body.classList.toggle('dark-mode');
     const newTheme = isDark ? 'dark' : 'light';
     saveTheme(newTheme);
 }
 
-// --- Journal Entry Management ---
+// --- Journal Entry Management (Called by browser.js) ---
 
-function saveTestEntry() {
+function saveEntryFromInput() {
     const inputElement = document.getElementById('new-entry-text');
     let entryToSave = 'No content provided.'; 
 
