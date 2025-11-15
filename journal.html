@@ -8,21 +8,66 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li> 
-                <li class="active"><a href="journal.html" class="active">Journal</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+    <header id="nav-placeholder">
+        <button id="theme-toggle">Toggle Dark Mode</button> 
     </header>
 
     <main>
         <h1>Weekly Learning Journal</h1>
         <p>This is where I document my weekly learning progress and answer the required unit questions.</p>
         
+        <article>
+            <h2>Week 4: Introduction to APIs</h2>
+            
+            <section id="journal-storage-feature">
+                <h3>Write and Save New Entry</h3>
+                <p>Type your quick reflection below and click 'Save'. The text will be saved to your browser's Local Storage (Storage API).</p>
+                
+                <form id="entry-form">
+                    <label for="new-entry-text" style="display: block; margin-bottom: 5px;">Your Quick Entry:</label>
+                    <textarea id="new-entry-text" style="width: 100%; min-height: 150px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px;"></textarea>
+                    
+                    <button type="submit" id="notify-button" class="cta-button">Save Entry & Notify</button>
+                </form>
+
+                <div id="saved-entry-display" style="margin-top: 30px; padding: 10px; border: 1px dashed var(--primary-color);">
+                    </div>
+            </section>
+            
+            <h3>1. Which Storage, Browser, and Third-Party APIs did you choose, and why?</h3>
+            <ul>
+                <li>Storage API: I chose Local Storage to persist the theme preference and save the latest journal entry. I chose it for its simplicity and directness in storing small amounts of data across browser sessions.</li>
+                <li>Browser API: I chose the Notifications API to provide direct user feedback (confirming a successful entry save). This enhances the PWA feel by moving confirmation away from simple pop-ups.</li>
+                <li>Third-Party API: I chose the ZenQuotes API to fetch a "Quote of the Day" for the homepage. I chose this because it is free, keyless, and demonstrates external data fetching using the Fetch API without requiring complex authentication.</li>
+            </ul>
+            
+            <h3>2. How did you integrate each API with DOM manipulation?</h3>
+            <ul>
+                <li>Local Storage: Integrated with the DOM by reading the `themePreference` on page load to set the `<body>` class, and by reading/writing the content in the `#saved-entry-display` div.</li>
+                <li>Notifications API: Integrated via a user event (submit on the form), where the successful saving triggers a notification that uses the PWA's icon for better branding.</li>
+                <li>ZenQuotes API: Integrated by using the `fetch` results to dynamically populate the `innerHTML` of the `#quote-container` element on the homepage.</li>
+            </ul>
+            
+            <h3>3. What challenges did you encounter, and how did you solve them?</h3>
+            <p>The main challenges were debugging the fetch API security blocks and handling the modular JavaScript file dependencies. The fetch API failed when testing locally due to CORS issues; this was solved by committing and pushing the code to GitHub Pages for testing over a secure HTTPS connection. The dependency issue was solved by strictly ensuring that files defining functions (e.g., `storage.js`) were linked in the HTML before the files that called those functions (e.g., `browser.js`).</p>
+
+            <h3>4. In what ways do these APIs improve your Learning Journal PWA?</h3>
+            <p>The APIs significantly improve the PWA by providing persistence (theme/entry storage), user engagement (notifications), and dynamic content (quote of the day). The PWA now feels less like a static webpage and more like a proper application that remembers the user and provides current, relevant content.</p>
+        </article>
+        
+        <article>
+            <h2>Week 3: JavaScript & DOM Manipulation</h2>
+            
+            <h3>1. Which DOM selection methods did you use, and why did you choose them?</h3>
+            <p>I primarily used document.getElementById() to select elements. I chose this method because the elements I needed to target (like the nav-placeholder and live-date) have unique IDs, making it the most direct and fastest selection method available.</p>
+            
+            <h3>2. What was the most challenging part about linking JavaScript with your HTML?</h3>
+            <p>The most challenging part was ensuring the JavaScript file was linked correctly and loaded at the appropriate time. Since the JavaScript is performing DOM manipulation (like inserting the navigation), it must be placed just before the closing </body> tag so the HTML elements (the placeholders) are already defined and available for selection when the script executes.</p>
+            
+            <h3>3. How did you test and debug your JavaScript code?</h3>
+            <p>I tested and debugged the JavaScript code by running the HTML pages in the browser and utilizing the Browser Developer Tools (Console tab). The Console was critical for checking two things: verifying that the navigation was inserted correctly (structure check) and watching for runtime errors when executing the Date() object and DOM methods like .innerHTML and .textContent.</p>
+        </article>
+
         <article>
             <h2>Week 2: Frontend Fundamentals</h2>
             
@@ -36,6 +81,7 @@
             <p>The most challenging part of CSS was fully grasping the correct implementation of the mobile-first mindset. It was initially confusing to intentionally design a basic, small layout first and then design for the desktop. Understanding where to place the universal styles (outside the media query) and where to place the complex, desktop-specific styles (inside the media query) was the key hurdle.</p>
         </article>
 
+
         <article>
             <h2>Week 1: Introduction (Temperature Converter PWA)</h2>
             
@@ -43,21 +89,29 @@
             <p>This lab focused on getting familiar with tools and platforms for multi-platform development, centered around building a Temperature Converter PWA.</p>
             
             <ul>
-                <li>GitHub & VS Code: I created the repository and used the GitHub Repositories extension in VS Code to easily manage commits and pushes directly to the main branch.</li>
-                <li>PWA Fundamentals: I implemented core PWA components: the HTML app structure, the JavaScript converter logic, and the styling.</li>
-                <li>Installability & Offline: The app was made installable by adding the `manifest.json` file, and offline capability was added by registering a `sw.js` Service Worker.</li>
-                <li>Deployment: The project was deployed publicly using GitHub Pages and also hosted on PythonAnywhere to understand the difference between static hosting (GitHub Pages) and environments that support server-side logic.</li>
-                <li>Mobile Platforms: I downloaded and ran the provided Kotlin code in Android Studio to understand native application structure and execution.</li>
+                <li>GitHub & VS Code: I created the repository and used the GitHub Repositories extension in VS Code to sign in and easily manage commits and pushes directly from the editor.</li>
+                <li>PWA Fundamentals: I implemented core PWA components, including setting up the manifest file and service worker to make the app installable and work offline.</li>
+                <li>Deployment: The project was deployed publicly using GitHub Pages and also hosted on PythonAnywhere. This helped me understand the difference between static hosting (GitHub Pages) and platforms that support server-side code.</li>
+                <li>Mobile Platforms: I downloaded and ran the provided Kotlin code in Android Studio to understand native application structure. I managed to run the sample app in my mobile phone, which was faster than the emulator.</li>
             </ul>
 
             <h3>Challenges Faced</h3>
-            <p>The main challenge was ensuring all the file paths were correct for the PWA components. When implementing the Service Worker, the paths in `index.html` (for the manifest and service worker registration) and within `sw.js` (for caching resources) had to be carefully checked. This was solved by confirming the correct use of relative paths (e.g., `./` vs `/`) for all links and registrations.</p>
+            <p>The main challenge was ensuring all the file paths were correct for the PWA components and handling external assets.</p>
+            <ul>
+                <li>External Asset Issue: I encountered an issue with the image path for the PWA icon, which required me to manually webs scrape the image and use a direct HTTPS URL inside `manifest.json` for the icon source.</li>
+                <li>Server Configuration: I had to configure the WSGI file on PythonAnywhere to correctly handle the content types (HTML, CSS, JS, etc.) for the static files to run properly.</li>
+            </ul>
         </article>
     </main>
 
     <footer>
         <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
     </footer>
+    
+    <script src="js/storage.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/thirdparty.js"></script>
 
 </body>
 </html>
