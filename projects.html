@@ -8,38 +8,45 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li> 
-                <li><a href="journal.html">Journal</a></li>
-                <li class="active"><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+    <header id="nav-placeholder">
+        <button id="theme-toggle">Toggle Dark Mode</button> 
     </header>
 
     <main>
         <h1>My Projects Portfolio</h1>
         <p>A showcase of my creative computing and technical work developed during this unit.</p>
         
+       <section class="project-item">
+    <h2>Week 4: API Integrations</h2>
+    <p>Demonstration of implementing Storage, Browser, and Third-Party APIs to add persistence, notifications, and external content to the PWA.</p>
+    <ul>
+        <li>Storage API (Local Storage): Used for theme preference persistence and saving recent journal entries (Journal page).</li>
+        <li>Browser API (Notifications API): Used on the Journal page to prompt for and send a confirmation notification upon saving data.</li>
+        <li>Third-Party API (ZenQuotes API): Used on the Homepage to fetch and display a random motivational quote.</li>
+        <li>Live Site: <a href="https://somantam.github.io/Learning-journal-PWA/">https://somantam.github.io/Learning-journal-PWA/</a></li>
+        <li>GitHub Repository: <a href="https://github.com/Somantam/Learning-journal-PWA">https://github.com/Somantam/Learning-journal-PWA</a></li>
+    </ul>
+</section>
+
+
+
         <section class="project-item">
-            <h2>Learning Journal PWA (Week 2)</h2>
-            <p>This is the current progressive web application (PWA) built using mobile-first principles to document my learning and showcase skills.</p>
+            <h2>Week 2/3: Responsive Layout and DOM Fundamentals</h2>
+            <p>The core PWA built using mobile-first principles, responsive design, and DOM manipulation.</p>
             <ul>
                 <li>Live Site: <a href="https://somantam.github.io/Learning-journal-PWA/">https://somantam.github.io/Learning-journal-PWA/</a></li>
-                <li>Source Code: <a href="https://github.com/Somantam/Learning-journal-PWA">GitHub Repository</a></li>
-                <li>Core Skills:Mobile-first responsive design, HTML structure, Flexbox layout, and external CSS styling.</li>
+                <li>GitHub Repository: <a href="https://github.com/Somantam/Learning-journal-PWA">https://github.com/Somantam/Learning-journal-PWA</a></li>
+                <li>Core Skills: HTML structure, Mobile-First CSS, Flexbox layout, and JavaScript for reusable navigation and live date display.</li>
             </ul>
         </section>
 
         <section class="project-item">
             <h2>Temperature Converter PWA (Week 1)</h2>
-            <p>A demonstration PWA designed to convert temperatures between Celsius, Fahrenheit, and Kelvin, showcasing fundamental PWA features.</p>
+            <p>A demonstration PWA showcasing fundamental PWA features like service workers and app manifests.</p>
             <ul>
                 <li>Live Site (GitHub Pages): <a href="https://somantam.github.io/TemperatureConverterPWA-/">https://somantam.github.io/TemperatureConverterPWA-/</a></li>
                 <li>Live Site (PythonAnywhere): <a href="https://somantam.pythonanywhere.com/">https://somantam.pythonanywhere.com/</a></li>
-                <li>Source Code: <a href="https://github.com/Somantam/TemperatureConverterPWA-">GitHub Repository</a></li>
+                <li>GitHub Repository: <a href="https://github.com/Somantam/TemperatureConverterPWA-">https://github.com/Somantam/TemperatureConverterPWA-</a></li>
                 <li>Core Skills: JavaScript logic, Web App Manifest (`manifest.json`), and Service Worker implementation for offline functionality.</li>
             </ul>
         </section>
@@ -48,6 +55,11 @@
     <footer>
         <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
     </footer>
+    
+    <script src="js/storage.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/thirdparty.js"></script> 
 
 </body>
 </html>
