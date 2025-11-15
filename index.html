@@ -8,21 +8,16 @@
 </head>
 <body>
 
-    <header>
-        <div id="header-bar"></div> <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li> 
-                <li><a href="journal.html">Journal</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+    <header id="nav-placeholder">
+        <button id="theme-toggle">Toggle Dark Mode</button> 
     </header>
 
     <main>
         <section id="hero">
             <h1>Hello! I'm Soman Tamang</h1>
             <p>Welcome to my Learning Journal PWA.</p>
+            <div id="live-date"></div> 
+            <div id="quote-container"></div> 
         </section>
         
         <section id="site-purpose">
@@ -43,7 +38,9 @@
     <footer>
         <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
     </footer>
-
-</body>
+    
+    <script src="js/storage.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/thirdparty.js"></script> </body>
 </html>
-
