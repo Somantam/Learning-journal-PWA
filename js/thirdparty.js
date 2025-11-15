@@ -1,5 +1,5 @@
 // ========================================================
-// LAB 4: THIRD-PARTY API (ZenQuotes API - Keyless)
+// LAB 4: THIRD-PARTY API (Type.fit Quotes - Keyless)
 // Fetches and displays a random quote on the homepage.
 // ========================================================
 
@@ -12,22 +12,24 @@ function fetchAndDisplayQuote() {
         return;
     }
 
-    // 2. Use the Fetch API to get data from the external service
-    fetch("https://zenquotes.io/api/random")
+    // 2. Use the Fetch API to get data from a reliable external service
+    fetch("https://type.fit/api/quotes")
         .then(response => {
             if (!response.ok) {
-                // Handle network error
                 throw new Error('Could not fetch quote: Network response was not ok');
             }
             // Parse the JSON response
             return response.json();
         })
         .then(data => {
-            // 3. Extract the quote text (q) and author (a)
-            const quoteText = data[0].q;
-            const author = data[0].a;
+            // Pick a random quote from the array
+            const randomIndex = Math.floor(Math.random() * data.length);
+            const quoteData = data[randomIndex];
 
-            // 4. DOM Manipulation: Insert the styled quote into the placeholder
+            const quoteText = quoteData.text;
+            const author = quoteData.author || 'Unknown'; // Default author if null
+
+            // 3. DOM Manipulation: Insert the styled quote into the placeholder
             quoteContainer.innerHTML = `
                 <blockquote style="margin-top: 20px; font-style: italic; border-left: 4px solid var(--primary-color); padding-left: 10px;">
                     "${quoteText}"
@@ -43,5 +45,4 @@ function fetchAndDisplayQuote() {
 }
 
 // Initialization for Third-Party API
-// Ensures the fetch happens as soon as the DOM is loaded
 document.addEventListener('DOMContentLoaded', fetchAndDisplayQuote);
