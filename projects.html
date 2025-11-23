@@ -16,41 +16,83 @@
         <h1>My Projects Portfolio</h1>
         <p>A showcase of my creative computing and technical work developed during this unit.</p>
         
-       <section class="project-item">
-    <h2>Week 4: API Integrations</h2>
-    <p>Demonstration of implementing Storage, Browser, and Third-Party APIs to add persistence, notifications, and external content to the PWA.</p>
-    <ul>
-        <li>Storage API (Local Storage): Used for theme preference persistence and saving recent journal entries (Journal page).</li>
-        <li>Browser API (Notifications API): Used on the Journal page to prompt for and send a confirmation notification upon saving data.</li>
-        <li>Third-Party API (ZenQuotes API): Used on the Homepage to fetch and display a random motivational quote.</li>
-        <li>Live Site: <a href="https://somantam.github.io/Learning-journal-PWA/">https://somantam.github.io/Learning-journal-PWA/</a></li>
-        <li>GitHub Repository: <a href="https://github.com/Somantam/Learning-journal-PWA">https://github.com/Somantam/Learning-journal-PWA</a></li>
-    </ul>
-</section>
-
-
-
+        <!-- Lab 5 Project -->
         <section class="project-item">
-            <h2>Week 2/3: Responsive Layout and DOM Fundamentals</h2>
-            <p>The core PWA built using mobile-first principles, responsive design, and DOM manipulation.</p>
+            <h2>Lab 5: Python & JSON Backend Integration</h2>
+            <p>Extended the Learning Journal PWA with Python backend integration and JSON file storage system for persistent data management.</p>
             <ul>
-                <li>Live Site: <a href="https://somantam.github.io/Learning-journal-PWA/">https://somantam.github.io/Learning-journal-PWA/</a></li>
-                <li>GitHub Repository: <a href="https://github.com/Somantam/Learning-journal-PWA">https://github.com/Somantam/Learning-journal-PWA</a></li>
-                <li>Core Skills: HTML structure, Mobile-First CSS, Flexbox layout, and JavaScript for reusable navigation and live date display.</li>
+                <li><strong>Python Backend:</strong> Created <code>save_entry.py</code> script to manage reflections data through JSON file storage</li>
+                <li><strong>JSON Integration:</strong> Implemented fetch API to automatically load and display reflections from <code>reflections.json</code></li>
+                <li><strong>Export Feature:</strong> Added download functionality to export reflections as JSON files for backup and sharing</li>
+                <li><strong>File-based Storage:</strong> Implemented persistent data storage using local JSON files with Python scripting</li>
+                <li><strong>Auto-loading:</strong> Reflections automatically load on page visit with real-time entry counter</li>
             </ul>
+            <p><strong>Technologies:</strong> Python, JSON, Fetch API, JavaScript, File Handling, Local Storage</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="journal.html" class="project-link">View Journal</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
         </section>
 
+        <!-- Lab 4 Project -->
+        <section class="project-item">
+            <h2>Lab 4: API Integrations</h2>
+            <p>Enhanced the Learning Journal PWA with multiple API integrations for advanced functionality and user engagement.</p>
+            <ul>
+                <li><strong>Storage API (Local Storage):</strong> Used for theme preference persistence and saving recent journal entries</li>
+                <li><strong>Browser API (Notifications API):</strong> Implemented user notifications for successful entry saves with PWA branding</li>
+                <li><strong>Third-Party API (Advice Slip API):</strong> Integrated external API to fetch and display daily motivational quotes on homepage</li>
+                <li><strong>Modular JavaScript:</strong> Organized code into separate files for better maintainability and dependency management</li>
+                <li><strong>Cross-browser Testing:</strong> Ensured compatibility across different browsers and devices</li>
+            </ul>
+            <p><strong>Technologies:</strong> JavaScript, Local Storage API, Notification API, Fetch API, DOM Manipulation, CORS Handling</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://somantam.github.io/Learning-journal-PWA/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+
+        <!-- Lab 2/3 Project -->
+        <section class="project-item">
+            <h2>Lab 2/3: Responsive PWA Foundation</h2>
+            <p>Built the core Progressive Web App with mobile-first responsive design, JavaScript functionality, and professional styling.</p>
+            <ul>
+                <li><strong>Mobile-First Design:</strong> Implemented responsive layouts using CSS Grid and Flexbox with progressive enhancement</li>
+                <li><strong>JavaScript DOM Manipulation:</strong> Added dynamic navigation, theme switching, and live date display</li>
+                <li><strong>PWA Features:</strong> Implemented service worker and web app manifest for installability and offline functionality</li>
+                <li><strong>Cross-Browser Compatibility:</strong> Ensured consistent experience across different browsers and screen sizes</li>
+                <li><strong>Professional Styling:</strong> Created clean, modern interface with dark/light mode support</li>
+            </ul>
+            <p><strong>Technologies:</strong> HTML5, CSS3, JavaScript, Responsive Design, PWA, Flexbox, CSS Grid</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://somantam.github.io/Learning-journal-PWA/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+
+        <!-- Temperature Converter PWA -->
         <section class="project-item">
             <h2>Temperature Converter PWA (Week 1)</h2>
-            <p>A demonstration PWA showcasing fundamental PWA features like service workers and app manifests.</p>
+            <p>A demonstration PWA showcasing fundamental PWA features and multi-platform deployment strategies.</p>
             <ul>
-                <li>Live Site (GitHub Pages): <a href="https://somantam.github.io/TemperatureConverterPWA-/">https://somantam.github.io/TemperatureConverterPWA-/</a></li>
-                <li>Live Site (PythonAnywhere): <a href="https://somantam.pythonanywhere.com/">https://somantam.pythonanywhere.com/</a></li>
-                <li>GitHub Repository: <a href="https://github.com/Somantam/TemperatureConverterPWA-">https://github.com/Somantam/TemperatureConverterPWA-</a></li>
-                <li>Core Skills: JavaScript logic, Web App Manifest (`manifest.json`), and Service Worker implementation for offline functionality.</li>
+                <li><strong>PWA Fundamentals:</strong> Implemented service worker and app manifest for offline functionality and installability</li>
+                <li><strong>Multi-Platform Deployment:</strong> Successfully deployed on both GitHub Pages and PythonAnywhere for comparison</li>
+                <li><strong>Temperature Conversion:</strong> Built interactive converter with Celsius, Fahrenheit, and Kelvin support</li>
+                <li><strong>Mobile Development:</strong> Explored Android Studio and Kotlin for native app development</li>
+                <li><strong>Development Environment:</strong> Set up VS Code with GitHub integration for version control</li>
             </ul>
+            <p><strong>Technologies:</strong> JavaScript, PWA, Service Workers, Web App Manifest, Kotlin, GitHub Pages, PythonAnywhere</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/TemperatureConverterPWA-" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://somantam.github.io/TemperatureConverterPWA-/" target="_blank" class="project-link">GitHub Pages</a>
+                <a href="https://somantam.pythonanywhere.com/" target="_blank" class="project-link">PythonAnywhere</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
         </section>
-    </main>
+</main>
 
     <footer>
         <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
@@ -59,7 +101,6 @@
     <script src="js/storage.js"></script>
     <script src="js/script.js"></script>
     <script src="js/browser.js"></script>
-    <script src="js/thirdparty.js"></script> 
-
+    <script src="js/thirdparty.js"></script>
 </body>
 </html>
