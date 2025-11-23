@@ -15,34 +15,41 @@
     <main>
         <h1>Weekly Learning Journal</h1>
         <p>This is where I document my weekly learning progress and answer the required unit questions.</p>
-        
-      <!--  Storage API: Journal Entry Form -->
-<section class="card" id="journal-storage-feature">  <!-- ADD THIS ID -->
-    <h2>Write a Journal Entry</h2>
-    <form id="entry-form">
-        <textarea id="new-entry-text" rows="5" placeholder="Write your journal entry..."></textarea><br>
-        <button type="submit" class="project-link">💾 Save Entry</button>
-    </form>
-    <h3 style="margin-top: 1.5rem;">Saved Entries</h3>
-    <ul id="entry-list" style="list-style: none; padding-left: 0;"></ul>
-</section>
-        <!-- Python JSON Reflections -->
+
+        <!-- ✅ Storage API: Journal Entry Form -->
+        <section class="card" id="journal-storage-feature">
+            <h2>Write a Journal Entry</h2>
+            <p>Type your quick reflection below and click 'Save'. The text will be saved to your browser's Local Storage (Storage API).</p>
+            
+            <form id="entry-form">
+                <label for="new-entry-text" style="display: block; margin-bottom: 5px;">Your Quick Entry:</label>
+                <textarea id="new-entry-text" style="width: 100%; min-height: 150px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px;"></textarea>
+                
+                <button type="submit" id="notify-button" class="cta-button">Save Entry & Notify</button>
+            </form>
+
+            <div id="saved-entry-display" style="margin-top: 30px; padding: 10px; border: 1px dashed var(--primary-color);">
+                <!-- Entries will appear here -->
+            </div>
+        </section>
+
+        <!-- ✅ Python JSON Reflections -->
         <section class="card">
             <h2>Python JSON Reflections</h2>
-            
+
             <div class="action-bar">
                 <button id="load-json" class="action-btn load-btn">Load</button>
                 <button id="export-json" class="action-btn export-btn">Export</button>
                 <div class="counter">Entries: <span id="reflection-count">0</span></div>
             </div>
-            
+
             <div id="json-reflections" class="reflections-list"></div>
         </section>
 
-        <!-- Week 5 Entry -->
+        <!-- ✅ Week 5 Entry -->
         <article>
             <h2>Week 5: Python & JSON Backend Data</h2>
-            
+
             <h3>1. How is storing data in a JSON file different from using browser storage?</h3>
             <p>JSON file storage persists on the server/file system and can be easily shared, backed up, or processed by other applications. Browser storage (like localStorage) is client-side only and limited to the specific browser/device. JSON files are better for permanent records that need to be accessed by multiple systems, while browser storage is ideal for temporary session data and user preferences.</p>
 
@@ -55,67 +62,67 @@
             <h3>4. What extra feature did you add to your PWA using the JSON file, and why?</h3>
             <p>I added an <strong>Export button</strong> that allows users to download their reflections as a JSON file for backup or sharing. This feature enhances data portability and gives users control over their content. The export functionality demonstrates practical file handling and provides a valuable utility for users who want to save their progress externally.</p>
         </article>
-        
-        <!-- Week 4 Entry -->
+
+        <!-- ✅ Week 4 Entry -->
         <article>
             <h2>Week 4: Introduction to APIs</h2>
-            
+
             <h3>1. Which Storage, Browser, and Third-Party APIs did you choose, and why?</h3>
             <ul>
                 <li>Storage API: I chose Local Storage to persist the theme preference and save the latest journal entry. I chose it for its simplicity and directness in storing small amounts of data across browser sessions.</li>
                 <li>Browser API: I chose the Notifications API to provide direct user feedback (confirming a successful entry save). This enhances the PWA feel by moving confirmation away from simple pop-ups.</li>
                 <li>Third-Party API: I chose the Advice Slip API to fetch a piece of daily wisdom for the homepage. I chose this because it is free, keyless, and demonstrates external data fetching using the Fetch API without requiring complex authentication.</li>
             </ul>
-            
+
             <h3>2. How did you integrate each API with DOM manipulation?</h3>
             <ul>
                 <li>Local Storage: Integrated with the DOM by reading the `themePreference` on page load to set the `<body>` class, and by reading/writing the content in the `#saved-entry-display` div.</li>
                 <li>Notifications API: Integrated via a user event (submit on the form), where the successful saving triggers a notification that uses the PWA's icon for better branding.</li>
                 <li>Third-Party API: Integrated by using the `fetch` results to dynamically populate the `innerHTML` of the `#quote-container` element on the homepage.</li>
             </ul>
-            
+
             <h3>3. What challenges did you encounter, and how did you solve them?</h3>
             <p>The main challenges were debugging the fetch API security blocks and handling the modular JavaScript file dependencies. The fetch API failed when testing locally due to CORS issues; this was solved by committing and pushing the code to GitHub Pages for testing over a secure HTTPS connection. The dependency issue was solved by strictly ensuring that files defining functions (e.g., `storage.js`) were linked in the HTML before the files that called those functions (e.g., `browser.js`).</p>
 
             <h3>4. In what ways do these APIs improve your Learning Journal PWA?</h3>
             <p>The APIs significantly improve the PWA by providing persistence (theme/entry storage), user engagement (notifications), and dynamic content (daily wisdom/advice). The PWA now feels less like a static webpage and more like a proper application that remembers the user and provides current, relevant content.</p>
         </article>
-        
-        <!-- Week 3 Entry -->
+
+        <!-- ✅ Week 3 Entry -->
         <article>
             <h2>Week 3: JavaScript & DOM Manipulation</h2>
-            
+
             <h3>1. Which DOM selection methods did you use, and why did you choose them?</h3>
             <p>I primarily used document.getElementById() to select elements. I chose this method because the elements I needed to target (like the nav-placeholder and live-date) have unique IDs, making it the most direct and fastest selection method available.</p>
-            
+
             <h3>2. What was the most challenging part about linking JavaScript with your HTML?</h3>
             <p>The most challenging part was ensuring the JavaScript file was linked correctly and loaded at the appropriate time. Since the JavaScript is performing DOM manipulation (like inserting the navigation), it must be placed just before the closing </body> tag so the HTML elements (the placeholders) are already defined and available for selection when the script executes.</p>
-            
+
             <h3>3. How did you test and debug your JavaScript code?</h3>
             <p>I tested and debugged the JavaScript code by running the HTML pages in the browser and utilizing the Browser Developer Tools (Console tab). The Console was critical for checking two things: verifying that the navigation was inserted correctly (structure check) and watching for runtime errors when executing the Date() object and DOM methods like .innerHTML and .textContent.</p>
         </article>
 
-        <!-- Week 2 Entry -->
+        <!-- ✅ Week 2 Entry -->
         <article>
             <h2>Week 2: Frontend Fundamentals</h2>
-            
+
             <h3>1. How did you approach mobile-first design?</h3>
             <p>I approached mobile-first design by following the principle of progressive enhancement. I started by setting up a minimal layout and styling optimized for the narrowest screen width (mobile phones) without using any media queries. I then used a single media query (`@media (min-width: 768px)`) to apply specific styles for larger devices, such as switching the navigation to a horizontal row and centering the main content. This ensures a fast loading time for mobile users.</p>
-            
+
             <h3>2. What was the most useful HTML or CSS concept you applied this week?</h3>
             <p>The most useful CSS concept I applied this week was Flexbox. I used Flexbox heavily to handle the responsive layout requirements, specifically on the `<body>` element to ensure the footer stays fixed at the bottom, and to manage the dynamic shift of the navigation bar from a vertical stack on mobile to a horizontal row on desktop within the media query.</p>
-            
+
             <h3>3. What part of HTML or CSS did you find most challenging or confusing?</h3>
             <p>The most challenging part of CSS was fully grasping the correct implementation of the mobile-first mindset. It was initially confusing to intentionally design a basic, small layout first and then design for the desktop. Understanding where to place the universal styles (outside the media query) and where to place the complex, desktop-specific styles (inside the media query) was the key hurdle.</p>
         </article>
 
-        <!-- Week 1 Entry -->
+        <!-- ✅ Week 1 Entry -->
         <article>
             <h2>Week 1: Introduction (Temperature Converter PWA)</h2>
-            
+
             <h3>Reflection on Steps Followed</h3>
             <p>This lab focused on getting familiar with tools and platforms for multi-platform development, centered around building a Temperature Converter PWA.</p>
-            
+
             <ul>
                 <li>GitHub & VS Code: I created the repository and used the GitHub Repositories extension in VS Code to sign in and easily manage commits and pushes directly from the editor.</li>
                 <li>PWA Fundamentals: I implemented core PWA components, including setting up the manifest file and service worker to make the app installable and work offline.</li>
@@ -135,7 +142,7 @@
     <footer>
         <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
     </footer>
-    
+
     <script src="js/storage.js"></script>
     <script src="js/script.js"></script>
     <script src="js/browser.js"></script>
