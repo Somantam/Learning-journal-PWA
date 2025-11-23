@@ -16,23 +16,34 @@
         <h1>Weekly Learning Journal</h1>
         <p>This is where I document my weekly learning progress and answer the required unit questions.</p>
         
+       <!-- Storage API: Journal Entry Form -->
+<section class="card">
+    <h2>Write a Journal Entry</h2>
+    <form id="entry-form">
+        <textarea id="entry-text" rows="5" placeholder="Write your journal entry..."></textarea><br>
+        <button type="submit" class="project-link">💾 Save Entry</button>
+    </form>
+    <h3 style="margin-top: 1.5rem;">Saved Entries</h3>
+    <ul id="entry-list" style="list-style: none; padding-left: 0;"></ul>
+</section>
+
+        <!-- Python JSON Reflections -->
+        <section class="card">
+            <h2>Python JSON Reflections</h2>
+            
+            <div class="action-bar">
+                <button id="load-json" class="action-btn load-btn">Load</button>
+                <button id="export-json" class="action-btn export-btn">Export</button>
+                <div class="counter">Entries: <span id="reflection-count">0</span></div>
+            </div>
+            
+            <div id="json-reflections" class="reflections-list"></div>
+        </section>
+
         <!-- Week 5 Entry -->
         <article>
             <h2>Week 5: Python & JSON Backend Data</h2>
             
-            <!-- Python JSON Reflections -->
-            <section class="card">
-                <h3>Python JSON Reflections</h3>
-                
-                <div class="action-bar">
-                    <button id="load-json" class="action-btn load-btn">Load</button>
-                    <button id="export-json" class="action-btn export-btn">Export</button>
-                    <div class="counter">Entries: <span id="reflection-count">0</span></div>
-                </div>
-                
-                <div id="json-reflections" class="reflections-list"></div>
-            </section>
-
             <h3>1. How is storing data in a JSON file different from using browser storage?</h3>
             <p>JSON file storage persists on the server/file system and can be easily shared, backed up, or processed by other applications. Browser storage (like localStorage) is client-side only and limited to the specific browser/device. JSON files are better for permanent records that need to be accessed by multiple systems, while browser storage is ideal for temporary session data and user preferences.</p>
 
@@ -49,21 +60,6 @@
         <!-- Week 4 Entry -->
         <article>
             <h2>Week 4: Introduction to APIs</h2>
-            
-            <section id="journal-storage-feature">
-                <h3>Write and Save New Entry</h3>
-                <p>Type your quick reflection below and click 'Save'. The text will be saved to your browser's Local Storage (Storage API).</p>
-                
-                <form id="entry-form">
-                    <label for="new-entry-text" style="display: block; margin-bottom: 5px;">Your Quick Entry:</label>
-                    <textarea id="new-entry-text" style="width: 100%; min-height: 150px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px;"></textarea>
-                    
-                    <button type="submit" id="notify-button" class="cta-button">Save Entry & Notify</button>
-                </form>
-
-                <div id="saved-entry-display" style="margin-top: 30px; padding: 10px; border: 1px dashed var(--primary-color);">
-                </div>
-            </section>
             
             <h3>1. Which Storage, Browser, and Third-Party APIs did you choose, and why?</h3>
             <ul>
