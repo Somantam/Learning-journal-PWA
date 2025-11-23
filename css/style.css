@@ -1,9 +1,4 @@
-/* ======================================================== */
-/* FGCT6021 MOBILE APPLICATION DEVELOPMENT                  */
-/* LAB 4: Frontend Fundamentals & API Styling               */
-/* ======================================================== */
 
-/* 1. Global Reset, Variables, and Base Typography */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,112 +6,92 @@
 }
 
 :root {
-    /* Color Palette */
-    --primary-color: #0069d9; /* Deep Blue for accents and highlights */
-    --secondary-color: #3f51b5; /* Complementary dark color (Footer/Headings) */
-    --background-color: #f8f9fa; /* Very light, clean body background */
-    --surface-color: #ffffff; /* White for content boxes/cards */
-    --text-color: #212529; /* Dark gray for body text */
+    /* Color Palette - Light Mode */
+    --primary-color: #0069d9;
+    --secondary-color: #3f51b5;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
     
     /* Typography and Spacing */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --border-radius: 8px;
-    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft, subtle shadow */
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
 }
 
+/* Base Body Styles */
 body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
-    
-    /* Layout using Flexbox: Ensures footer sticks to the bottom (Mobile-First) */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 main {
-    flex-grow: 1; /* Pushes the footer down */
-    padding: 1em; /* Mobile padding */
+    flex-grow: 1;
+    padding: 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-/* Headings and Links */
-h1, h2, h3 {
+/* Headings and Text */
+h1, h2, h3, h4 {
     color: var(--secondary-color);
     margin-bottom: 0.5em;
     font-weight: 600;
 }
 
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Links */
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: var(--transition);
 }
 
 a:hover {
     color: #0056b3;
+    text-decoration: underline;
 }
 
-/* --- Content Sections (Card-like appearance & Interactive Hover) --- */
-section, article {
-    background-color: var(--surface-color);
-    padding: 1.5em;
-    margin-bottom: 1.5em;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow); 
-    
-    /* Enable smooth transitions for hover effects */
-    transition: all 0.3s ease-in-out;
-}
-
-/* Interactive Hover Effect: Lifts the card and deepens the shadow */
-section:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
-    cursor: pointer; 
-}
-
-/* Lists */
-ul {
-    padding-left: 1.5em;
-    list-style: disc;
-}
-li {
-    margin-bottom: 0.5em;
-}
-
-/* ======================================================== */
-/* 2. Navigation Bar (Mobile Default)                       */
-/* ======================================================== */
+/* 2. Navigation & Header                                   */
 header {
     background: var(--surface-color);
     border-bottom: 2px solid var(--primary-color);
-    padding: 0.5em 0;
-    /* Ensure header uses flex to position nav and button */
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
+    padding: 1rem;
+    box-shadow: var(--shadow);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    flex-direction: column; /* VERTICAL stack for mobile */
-    gap: 0;
-    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 nav a {
     text-align: center;
     color: var(--text-color);
-    padding: 0.8em 1em;
+    padding: 0.8rem 1rem;
     display: block;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 1px solid transparent;
 }
 
-/* Active Page Styling */
 nav a.active {
     background-color: var(--primary-color);
     color: white;
@@ -124,220 +99,376 @@ nav a.active {
 }
 
 nav a:not(.active):hover {
-    background-color: #f0f0f0;
-    transform: scale(1.02); 
+    background-color: #f8f9fa;
+    border-color: var(--primary-color);
 }
 
-/* --- Theme Toggle Button Styling --- */
+/* Theme Toggle Button */
 #theme-toggle {
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    padding: 0.5em 1em;
-    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    margin: 0.5em 0; /* Space it out slightly */
-    transition: background-color 0.3s;
+    margin: 0.5rem 0;
+    transition: var(--transition);
+    font-size: 0.9rem;
 }
 
 #theme-toggle:hover {
     background-color: #304190;
+    transform: translateY(-1px);
+}
+
+/* 3. Cards & Sections                                      */
+.card {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Journal Articles */
+article {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+article h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* 4. Buttons & Forms                                       */
+.cta-button, .project-link, .action-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    margin: 0.25rem;
+}
+
+.cta-button:hover, .project-link:hover, .action-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    text-decoration: none !important;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Form Elements */
+form {
+    margin: 1rem 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--surface-color);
+    color: var(--text-color);
+}
+
+textarea:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 105, 217, 0.1);
 }
 
 
-/* ======================================================== */
-/* 3. Homepage Specific Styling (Interactive Elements)      */
-/* ======================================================== */
+/* 5. JSON Reflections Styles                               */
+.json-controls, .action-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
 
-/* Keyframe Animation for H1 heading */
+.counter {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.reflections-container, .reflections-list, .entries-list, .data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reflection-card {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.reflection-card:hover {
+    background: #e9ecef;
+    transform: translateX(4px);
+}
+
+.reflection-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.reflection-date {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.reflection-text {
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* 6. Project Items & Grid                                  */
+.project-item {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-color);
+}
+
+.project-item h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.project-item ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.project-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* ======================================================== */
+/* 7. Homepage Specific Styles                              */
+/* ======================================================== */
+#hero {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--surface-color) 0%, #ffffff 100%);
+    border-radius: var(--border-radius);
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: slideInFade 1s ease-out;
+}
+
 @keyframes slideInFade {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-#hero {
-    text-align: center;
-    padding: 3em 1.5em;
-    margin-bottom: 2em;
-    background: linear-gradient(135deg, var(--surface-color) 0%, #ffffff 100%);
-}
-
-#hero h1 {
-    animation: slideInFade 1s ease-out;
-    font-size: 2em;
-}
-
-/* Call-to-action button styling */
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white !important;
-    padding: 0.8em 1.5em;
-    border-radius: 4px;
-    margin-top: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border: none; /* Ensure buttons look consistent */
-}
-
-.cta-button:hover {
-    background-color: #0056b3; 
-    transform: scale(1.05);
-}
-
-/* Quick Links Grid */
 .link-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .link-card {
     display: block;
     text-align: center;
-    padding: 1.5em;
-    background-color: #e9ecef; 
+    padding: 2rem;
+    background: var(--surface-color);
     border-radius: var(--border-radius);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
     color: var(--text-color);
+    border: 2px solid transparent;
 }
 
 .link-card:hover {
-    background-color: #dee2e6;
-    transform: translateY(-2px);
-}
-
-/* --- LAB 4: Journal Input Form Fixes and Styling --- */
-
-/* FIX: Restrict the label's clickable area to stop selecting the whole box */
-#entry-form label {
-    display: inline-block; /* Makes the label only take up the width of its content */
-    margin-bottom: 5px;
-    cursor: default;
-}
-
-/* Style the textarea */
-#new-entry-text {
-    /* Use variables for consistency */
-    background-color: var(--surface-color); 
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    text-decoration: none;
     color: var(--text-color);
 }
 
-/* Style the retrieved entry box */
-#saved-entry-display {
-    border: 1px dashed var(--primary-color) !important; 
-    padding: 1em;
-    border-radius: var(--border-radius);
-}
-
-
 /* ======================================================== */
-/* 4. Footer Styling                                        */
+/* 8. Footer                                                */
 /* ======================================================== */
 footer {
     background: var(--secondary-color);
-    color: #fff;
+    color: white;
     text-align: center;
-    padding: 1.5em;
+    padding: 1.5rem;
     margin-top: auto;
 }
 
-
-/* ======================================================== */
-/* 5. Media Query for Desktop (min-width: 768px)            */
-/* ======================================================== */
-@media (min-width: 768px) {
-    
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0.5em 2em;
-    }
-    nav ul {
-        flex-direction: row;
-        width: auto;
-    }
-    
-    /* Navigation layout change */
-    nav ul {
-        justify-content: center;
-    }
-    nav a {
-        border-bottom: none; 
-        border-radius: 50px;
-        padding: 0.5em 1.5em;
-    }
-    nav a.active {
-        border-radius: 50px;
-    }
-
-    /* Main Content Centering and Max-Width */
-    main {
-        max-width: 1100px; 
-        margin: 2em auto; 
-        padding: 2em;
-    }
-    
-    #hero h1 {
-        font-size: 3em;
-    }
-    
-    /* Quick Links Grid adjustment */
-    .link-grid {
-        flex-direction: row; 
-    }
-    
-    .link-card {
-        flex-basis: 50%; 
-    }
-}
-
-/* --- DARK MODE THEME (UPDATED) --- */
+/* 9. Dark Mode Theme                                       */
 .dark-mode {
-    /* Define dark colors */
     --primary-color: #4db8ff;
     --secondary-color: #9fa8da;
     --background-color: #121212;
     --surface-color: #1e1e1e;
     --text-color: #e0e0e0;
-    --shadow: 0 2px 4px rgba(0, 0, 0, 0.4); 
-    
+    --border-color: #333;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode body {
     color: var(--text-color);
     background-color: var(--background-color);
 }
 
-/* Ensure structural elements inherit dark mode surface color */
-.dark-mode section, 
-.dark-mode article, 
-.dark-mode header, 
-.dark-mode footer,
+.dark-mode .card,
+.dark-mode article,
+.dark-mode .project-item,
 .dark-mode .link-card {
     background-color: var(--surface-color);
-}
-.dark-mode footer {
-    background-color: var(--secondary-color);
-}
-
-/* Ensure form elements and text are readable */
-.dark-mode #new-entry-text {
-    background-color: #333;
-    color: var(--text-color);
-    border-color: #555;
-}
-
-/* FIX 1: Ensure general list item text is light */
-.dark-mode li {
-    color: var(--text-color); 
-}
-
-/* FIX 2: Ensure links maintain readability and use the primary color variable */
-.dark-mode a {
-    color: var(--primary-color);
-}
-.dark-mode nav a {
     color: var(--text-color);
 }
-.dark-mode nav a.active {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+
+.dark-mode .reflection-card {
+    background: #2d3748;
+}
+
+.dark-mode .reflection-card:hover {
+    background: #374151;
+}
+
+.dark-mode textarea,
+.dark-mode input[type="text"] {
+    background: #2d3748;
+    color: var(--text-color);
+    border-color: #4a5568;
+}
+
+.dark-mode nav a:not(.active):hover {
+    background-color: #2d3748;
+}
+
+/* ======================================================== */
+/* 10. Responsive Design                                    */
+/* ======================================================== */
+@media (min-width: 768px) {
+    /* Navigation */
+    header {
+        padding: 1rem 2rem;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    nav a {
+        padding: 0.5rem 1.5rem;
+    }
+    
+    /* Layout */
+    main {
+        padding: 2rem;
+    }
+    
+    /* Hero Section */
+    #hero h1 {
+        font-size: 3rem;
+    }
+    
+    /* Link Grid */
+    .link-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* JSON Controls */
+    .json-controls, .action-bar {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 1024px) {
+    .link-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    #hero {
+        padding: 4rem 2rem;
+    }
+}
+
+/* 11. Utility Classes                                      */
+
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+.hidden { display: none; }
+.visible { display: block; }
+
+/* Status Badges */
+.project-status-completed {
+    background: #27ae60 !important;
+}
+
+.project-status-inprogress {
+    background: #f39c12 !important;
+}
+
+/* Error Messages */
+.error-message {
+    background: #ffeaa7;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid #fdcb6e;
+    margin: 1rem 0;
+}
+
+.dark-mode .error-message {
+    background: #2d3436;
+    border-left-color: #f39c12;
 }
