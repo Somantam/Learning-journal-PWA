@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "date": "2025-01-20 14:30:00",
+    "text": "Learning about Python JSON integration for web apps. It's interesting how we can use Python as a backend for storing data."
+  },
+  {
+    "date": "2025-01-20 14:35:00",
+    "text": "Working on integrating JSON with my PWA. The fetch API makes it easy to load external data files and display them dynamically."
+  },
+  {
+    "date": "2025-01-20 14:40:00",
+    "text": "Successfully added export functionality to my Learning Journal. Users can now download their reflections as JSON files for backup!"
+  },
+  {
+    "date": "2025-01-20 14:45:00",
+    "text": "Comparing browser storage vs JSON file storage. Each has different use cases - localStorage for temporary data, JSON files for permanent records."
+  }
+]
