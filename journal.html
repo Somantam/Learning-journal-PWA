@@ -16,6 +16,37 @@
         <h1>Weekly Learning Journal</h1>
         <p>This is where I document my weekly learning progress and answer the required unit questions.</p>
         
+        <!-- Week 5 Entry -->
+        <article>
+            <h2>Week 5: Python & JSON Backend Data</h2>
+            
+            <!-- Python JSON Reflections -->
+            <section class="card">
+                <h3>Python JSON Reflections</h3>
+                
+                <div class="action-bar">
+                    <button id="load-json" class="action-btn load-btn">Load</button>
+                    <button id="export-json" class="action-btn export-btn">Export</button>
+                    <div class="counter">Entries: <span id="reflection-count">0</span></div>
+                </div>
+                
+                <div id="json-reflections" class="reflections-list"></div>
+            </section>
+
+            <h3>1. How is storing data in a JSON file different from using browser storage?</h3>
+            <p>JSON file storage persists on the server/file system and can be easily shared, backed up, or processed by other applications. Browser storage (like localStorage) is client-side only and limited to the specific browser/device. JSON files are better for permanent records that need to be accessed by multiple systems, while browser storage is ideal for temporary session data and user preferences.</p>
+
+            <h3>2. How did you use Python to create or update your JSON file?</h3>
+            <p>I created a Python script (<code>save_entry.py</code>) that takes user input via the command line, adds a timestamp, and appends the reflection to a JSON array. The script uses <code>json.load()</code> to read existing data and <code>json.dump()</code> to write the updated array back to the file with proper formatting. This creates a simple backend system for managing reflection data.</p>
+
+            <h3>3. What does your PWA show locally, and what will users see on GitHub? Are they the same? Why or why not?</h3>
+            <p>Locally, the PWA shows actual reflections loaded from the JSON file (after running the Python script). On GitHub Pages, users will see demo reflections from the pre-populated JSON file, but they cannot add new entries via Python. They're different because GitHub Pages serves static files only and cannot execute Python scripts or maintain file changes between visits.</p>
+
+            <h3>4. What extra feature did you add to your PWA using the JSON file, and why?</h3>
+            <p>I added an <strong>Export button</strong> that allows users to download their reflections as a JSON file for backup or sharing. This feature enhances data portability and gives users control over their content. The export functionality demonstrates practical file handling and provides a valuable utility for users who want to save their progress externally.</p>
+        </article>
+        
+        <!-- Week 4 Entry -->
         <article>
             <h2>Week 4: Introduction to APIs</h2>
             
@@ -31,7 +62,7 @@
                 </form>
 
                 <div id="saved-entry-display" style="margin-top: 30px; padding: 10px; border: 1px dashed var(--primary-color);">
-                    </div>
+                </div>
             </section>
             
             <h3>1. Which Storage, Browser, and Third-Party APIs did you choose, and why?</h3>
@@ -55,6 +86,7 @@
             <p>The APIs significantly improve the PWA by providing persistence (theme/entry storage), user engagement (notifications), and dynamic content (daily wisdom/advice). The PWA now feels less like a static webpage and more like a proper application that remembers the user and provides current, relevant content.</p>
         </article>
         
+        <!-- Week 3 Entry -->
         <article>
             <h2>Week 3: JavaScript & DOM Manipulation</h2>
             
@@ -68,6 +100,7 @@
             <p>I tested and debugged the JavaScript code by running the HTML pages in the browser and utilizing the Browser Developer Tools (Console tab). The Console was critical for checking two things: verifying that the navigation was inserted correctly (structure check) and watching for runtime errors when executing the Date() object and DOM methods like .innerHTML and .textContent.</p>
         </article>
 
+        <!-- Week 2 Entry -->
         <article>
             <h2>Week 2: Frontend Fundamentals</h2>
             
@@ -81,7 +114,7 @@
             <p>The most challenging part of CSS was fully grasping the correct implementation of the mobile-first mindset. It was initially confusing to intentionally design a basic, small layout first and then design for the desktop. Understanding where to place the universal styles (outside the media query) and where to place the complex, desktop-specific styles (inside the media query) was the key hurdle.</p>
         </article>
 
-
+        <!-- Week 1 Entry -->
         <article>
             <h2>Week 1: Introduction (Temperature Converter PWA)</h2>
             
@@ -112,7 +145,6 @@
     <script src="js/script.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/thirdparty.js"></script>
-<script src="js/jsonhandler.js"></script>
-
+    <script src="js/jsonhandler.js"></script>
 </body>
 </html>
