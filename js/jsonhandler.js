@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const loadBtn = document.getElementById('load-json');
     const exportBtn = document.getElementById('export-json');
     const container = document.getElementById('json-reflections');
+    const countSpan = document.getElementById('reflection-count');
     
-    if (loadBtn && container) {
-        loadBtn.addEventListener('click', loadReflections);
-        setTimeout(loadReflections, 1000);
-    }
+    // Auto-load reflections on page load
+    loadReflections();
     
     if (exportBtn) {
         exportBtn.addEventListener('click', exportJSON);
@@ -16,20 +14,34 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('./backend/reflections.json')
             .then(response => response.json())
             .then(reflections => {
+                // Update counter
+                if (countSpan) {
+                    countSpan.textContent = reflections.length;
+                }
+                
                 if (reflections.length === 0) {
                     container.innerHTML = '<p>No reflections yet.</p>';
                     return;
                 }
                 
+                // Sort by date (newest first)
+                reflections.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
                 container.innerHTML = reflections.map(reflection => `
-                    <div style="background: #f8f9fa; padding: 1rem; margin: 1rem 0; border-radius: 8px;">
-                        <strong> ${new Date(reflection.date).toLocaleString()}</strong>
-                        <p>${reflection.text}</p>
+                    <div class="reflection-card">
+                        <div class="reflection-header">
+                            <strong> ${new Date(reflection.date).toLocaleString()}</strong>
+                        </div>
+                        <div class="reflection-text">${reflection.text}</div>
                     </div>
                 `).join('');
             })
             .catch(error => {
+                console.error('Error loading JSON:', error);
                 container.innerHTML = '<p>Error loading reflections.</p>';
+                if (countSpan) {
+                    countSpan.textContent = '0';
+                }
             });
     }
     
@@ -46,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 a.click();
                 URL.revokeObjectURL(url);
                 
-                alert('Reflections exported!');
+                alert('Reflections exported successfully!');
             })
             .catch(error => {
-                alert('Export failed');
+                alert('Export failed: ' + error.message);
             });
     }
 });
