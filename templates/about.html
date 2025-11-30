@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Learning Journal</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
 <body>
 
     <header id="nav-placeholder">
-        <button id="theme-toggle">Toggle Dark Mode</button> 
+        <button id="theme-toggle">Toggle Dark Mode</button>
     </header>
 
     <main>
         <h1>About Soman Tamang</h1>
         <p>This page serves as my professional profile and portfolio introduction for the BSc (Hons) Computer Science program.</p>
-        
+
         <section id="profile-summary">
             <h2>Who I Am</h2>
             <p>I am a student pursuing a BSc (Hons) in Computer Science at the School of Games and Creative Technology. My academic focus is on developing robust frontend and mobile application skills, with an emphasis on creating efficient, accessible, and user-friendly digital experiences.</p>
             <p>I am particularly interested in responsive design and exploring how the principles of Progressive Web Apps (PWAs) can bridge the gap between web and native application development.</p>
         </section>
-        
+
         <section id="skills">
             <h2>Core Skills and Technologies</h2>
             <p>I am currently building foundational skills in the following areas:</p>
@@ -33,7 +33,7 @@
                 <li>Version Control: Proficient use of Git and GitHub for project management.</li>
             </ul>
         </section>
-        
+
         <section id="contact-info">
             <h2>Connect with Me</h2>
             <p>I believe in continuous learning and open collaboration. You can view my source code and projects here:</p>
@@ -41,18 +41,18 @@
                 <li>GitHub Profile: <a href="https://github.com/Somantam">https://github.com/Somantam</a></li>
             </ul>
         </section>
-        
+
         </main>
 
     <footer>
         <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
     </footer>
-    
-    <script src="js/storage.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/browser.js"></script>
-    <script src="js/thirdparty.js">
-</script> 
-    
+
+<script src="{{ url_for('static', filename='js/storage.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/browser.js') }}"></script>
+<script src="{{ url_for('static', filename='js/thirdparty.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jsonhandler.js') }}"></script>
+
 </body>
 </html>
