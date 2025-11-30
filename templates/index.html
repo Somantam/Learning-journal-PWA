@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Learning Journal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header id="nav-placeholder">
+    <button id="theme-toggle">Switch to Dark Mode</button>
+  </header>
+
+  <main>
+    <section id="hero">
+      <h1>Hello! I'm Soman Tamang</h1>
+      <p>Welcome to my Learning Journal PWA.</p>
+      <p id="live-date" class="text-center mt-1 mb-2">Loading date...</p>
+      <p id="quote-container" class="text-center mb-3"><em>Fetching quote...</em></p>
+    </section>
+
+    <section class="card">
+      <h2>About this Site</h2>
+      <p>This progressive web app (PWA) serves as a learning log of my journey through the Mobile Application Development unit — a personal and reflective space to showcase my creative and technical work.</p>
+    </section>
+
+    <section class="link-grid">
+      <a href="{{ url_for('journal') }}" class="link-card">View Journal Entries</a>
+      <a href="{{ url_for('projects') }}" class="link-card">Explore My Projects</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/storage.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/browser.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/thirdparty.js') }}"></script>
+</body>
+</html>
