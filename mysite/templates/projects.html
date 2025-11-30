@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Learning Journal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header id="nav-placeholder">
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <main>
+        <h1>My Projects Portfolio</h1>
+        <p>A showcase of my creative computing and technical work developed during this unit.</p>
+
+        <!-- Lab 6 Project -->
+        <section class="project-item">
+            <h2>Lab 6: Flask Backend Integration</h2>
+            <p>Upgraded the Learning Journal PWA with a Flask backend deployed on PythonAnywhere. This allowed reflections to be stored, retrieved, and managed dynamically via server-side JSON.</p>
+            <ul>
+                <li><strong>Flask Setup:</strong> Created <code>flask_app.py</code> with routes for GET, POST, PUT, and DELETE requests</li>
+                <li><strong>Persistent Storage:</strong> Reflections saved in <code>reflections.json</code> on the server</li>
+                <li><strong>Frontend Integration:</strong> Updated <code>jsonhandler.js</code> to fetch and submit reflections via Fetch API</li>
+                <li><strong>Deployment:</strong> Hosted live on PythonAnywhere with full backend functionality</li>
+                <li><strong>Extra Feature:</strong> Added Edit and Delete options for reflections to demonstrate CRUD operations</li>
+            </ul>
+            <p><strong>Technologies:</strong> Flask, Python, JSON, Fetch API, JavaScript, PythonAnywhere Deployment</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://soman010.pythonanywhere.com/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+
+        <!-- Lab 5 Project -->
+        <section class="project-item">
+            <h2>Lab 5: Python & JSON Backend Integration</h2>
+            <p>Extended the Learning Journal PWA with Python backend integration and JSON file storage system for persistent data management.</p>
+            <ul>
+                <li><strong>Python Backend:</strong> Created <code>save_entry.py</code> script to manage reflections data through JSON file storage</li>
+                <li><strong>JSON Integration:</strong> Implemented fetch API to automatically load and display reflections from <code>reflections.json</code></li>
+                <li><strong>Export Feature:</strong> Added download functionality to export reflections as JSON files for backup and sharing</li>
+                <li><strong>File-based Storage:</strong> Implemented persistent data storage using local JSON files with Python scripting</li>
+                <li><strong>Auto-loading:</strong> Reflections automatically load on page visit with real-time entry counter</li>
+            </ul>
+            <p><strong>Technologies:</strong> Python, JSON, Fetch API, JavaScript, File Handling, Local Storage</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://soman010.pythonanywhere.com/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+
+        <!-- Lab 4 Project -->
+        <section class="project-item">
+            <h2>Lab 4: API Integrations</h2>
+            <p>Enhanced the Learning Journal PWA with multiple API integrations for advanced functionality and user engagement.</p>
+            <ul>
+                <li><strong>Storage API:</strong> Local Storage for theme persistence and saving journal entries</li>
+                <li><strong>Browser API:</strong> Notifications API for user feedback</li>
+                <li><strong>Third-Party API:</strong> Advice Slip API for daily motivational quotes</li>
+                <li><strong>Modular JavaScript:</strong> Organized code into separate files</li>
+                <li><strong>Cross-browser Testing:</strong> Ensured compatibility across browsers and devices</li>
+            </ul>
+            <p><strong>Technologies:</strong> JavaScript, Local Storage API, Notification API, Fetch API, DOM Manipulation</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://soman010.pythonanywhere.com/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+
+        <!-- Lab 2/3 Project -->
+        <section class="project-item">
+            <h2>Lab 2/3: Responsive PWA Foundation</h2>
+            <p>Built the core Progressive Web App with mobile-first responsive design, JavaScript functionality, and professional styling.</p>
+            <ul>
+                <li><strong>Mobile-First Design:</strong> Responsive layouts using CSS Grid and Flexbox</li>
+                <li><strong>JavaScript DOM Manipulation:</strong> Dynamic navigation, theme switching, and live date display</li>
+                <li><strong>PWA Features:</strong> Service worker and manifest for installability and offline use</li>
+                <li><strong>Cross-Browser Compatibility:</strong> Consistent experience across devices</li>
+                <li><strong>Professional Styling:</strong> Clean interface with dark/light mode support</li>
+            </ul>
+            <p><strong>Technologies:</strong> HTML5, CSS3, JavaScript, Responsive Design, PWA</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://soman010.pythonanywhere.com/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+
+        <!-- Temperature Converter PWA -->
+        <section class="project-item">
+            <h2>Temperature Converter PWA (Week 1)</h2>
+            <p>A demonstration PWA showcasing fundamental PWA features and multi-platform deployment strategies.</p>
+            <ul>
+                <li><strong>PWA Fundamentals:</strong> Service worker and manifest for offline functionality</li>
+                <li><strong>Multi-Platform Deployment:</strong> Deployed on GitHub Pages and PythonAnywhere</li>
+                <li><strong>Temperature Conversion:</strong> Interactive converter with Celsius, Fahrenheit, and Kelvin support</li>
+                <li><strong>Mobile Development:</strong> Explored Android Studio and Kotlin basics</li>
+                <li><strong>Development Environment:</strong> VS Code with GitHub integration</li>
+            </ul>
+            <p><strong>Technologies:</strong> JavaScript, PWA, Service Workers, Web App Manifest, Kotlin</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/TemperatureConverterPWA-" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://somantam.pythonanywhere.com/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/storage.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/thirdparty.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jsonhandler.js') }}"></script>
+</body>
+</html>
