@@ -1,5 +1,5 @@
 // ========================================================
-// LAB 3: CORE JAVASCRIPT FUNCTIONS 
+// LAB 3: CORE JAVASCRIPT FUNCTIONS
 // Handles Navigation and Live Date
 // ========================================================
 
@@ -7,27 +7,27 @@
 
 // --- Navigation Insertion (Lab 3) ---
 function loadNavigation() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname;
 
     const navHTML = `
         <nav>
             <ul>
-                <li><a href="index.html" class="${currentPage === 'index.html' ? 'active' : ''}">Home</a></li>
-                <li><a href="journal.html" class="${currentPage === 'journal.html' ? 'active' : ''}">Journal</a></li>
-                <li><a href="projects.html" class="${currentPage === 'projects.html' ? 'active' : ''}">Projects</a></li>
-                <li><a href="about.html" class="${currentPage === 'about.html' ? 'active' : ''}">About</a></li>
+                <li><a href="/" class="${currentPath === '/' ? 'active' : ''}">Home</a></li>
+                <li><a href="/journal" class="${currentPath === '/journal' ? 'active' : ''}">Journal</a></li>
+                <li><a href="/projects" class="${currentPath === '/projects' ? 'active' : ''}">Projects</a></li>
+                <li><a href="/about" class="${currentPath === '/about' ? 'active' : ''}">About</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
     `;
 
     const navPlaceholder = document.getElementById('nav-placeholder');
     if (navPlaceholder) {
         // Insert navigation
-        navPlaceholder.innerHTML = navHTML + navPlaceholder.innerHTML;
+        navPlaceholder.innerHTML = navHTML;
 
-        // Listener for the theme toggle button (calls function from storage.js)
+        // Listener for the theme toggle button
         const toggleButton = document.getElementById('theme-toggle');
-        // We assume toggleTheme() is available globally via the linked storage.js
         if (toggleButton) {
             toggleButton.addEventListener('click', toggleTheme);
         }
@@ -42,19 +42,17 @@ function displayLiveDate() {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const dateString = now.toLocaleDateString('en-US', options);
 
-        dateElement.textContent = `Today is: ${dateString}`; 
+        dateElement.textContent = `Today is: ${dateString}`;
         dateElement.style.marginTop = '15px';
         dateElement.style.fontWeight = '600';
         dateElement.style.color = 'var(--primary-color)';
     }
 }
 
-
 // ========================================================
 // INITIALIZATION
 // ========================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // NOTE: loadTheme() is initialized in storage.js
-    loadNavigation(); 
-    displayLiveDate(); 
+    loadNavigation();
+    displayLiveDate();
 });
