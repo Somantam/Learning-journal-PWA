@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,7 +12,7 @@
     --surface-color: #ffffff;
     --text-color: #212529;
     --border-color: #dee2e6;
-    
+
     /* Typography and Spacing */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --border-radius: 8px;
@@ -67,7 +66,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 2. Navigation & Header                                   */
+button:focus, a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Navigation & Header */
 header {
     background: var(--surface-color);
     border-bottom: 2px solid var(--primary-color);
@@ -121,7 +125,7 @@ nav a:not(.active):hover {
     transform: translateY(-1px);
 }
 
-/* 3. Cards & Sections                                      */
+/* Cards & Sections */
 .card {
     background: var(--surface-color);
     padding: 1.5rem;
@@ -153,7 +157,7 @@ article h2 {
     margin-bottom: 1rem;
 }
 
-/* 4. Buttons & Forms                                       */
+/* Buttons & Forms */
 .cta-button, .project-link, .action-btn {
     display: inline-block;
     background-color: var(--primary-color);
@@ -211,8 +215,7 @@ textarea:focus, input[type="text"]:focus {
     box-shadow: 0 0 0 2px rgba(0, 105, 217, 0.1);
 }
 
-
-/* 5. JSON Reflections Styles                               */
+/* JSON Reflections Styles */
 .json-controls, .action-bar {
     display: flex;
     align-items: center;
@@ -247,7 +250,7 @@ textarea:focus, input[type="text"]:focus {
 
 .reflection-header {
     display: flex;
-    justify-content: between;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
 }
@@ -262,7 +265,22 @@ textarea:focus, input[type="text"]:focus {
     white-space: pre-wrap;
 }
 
-/* 6. Project Items & Grid                                  */
+/* Lab 6 Edit/Delete buttons */
+.json-controls .action-btn[data-action="edit"] {
+    background-color: #ffc107;
+    color: #212529 !important;
+}
+.json-controls .action-btn[data-action="edit"]:hover {
+    background-color: #e0a800;
+}
+.json-controls .action-btn[data-action="delete"] {
+    background-color: #dc3545;
+}
+.json-controls .action-btn[data-action="delete"]:hover {
+    background-color: #c82333;
+}
+
+/* Project Items & Grid */
 .project-item {
     background: var(--surface-color);
     padding: 1.5rem;
@@ -286,9 +304,7 @@ textarea:focus, input[type="text"]:focus {
     margin-bottom: 0.5rem;
 }
 
-/* ======================================================== */
-/* 7. Homepage Specific Styles                              */
-/* ======================================================== */
+/* Homepage Specific Styles */
 #hero {
     text-align: center;
     padding: 3rem 1.5rem;
@@ -334,9 +350,7 @@ textarea:focus, input[type="text"]:focus {
     color: var(--text-color);
 }
 
-/* ======================================================== */
-/* 8. Footer                                                */
-/* ======================================================== */
+/* Footer */
 footer {
     background: var(--secondary-color);
     color: white;
@@ -345,8 +359,8 @@ footer {
     margin-top: auto;
 }
 
-/* 9. Dark Mode Theme                                       */
-.dark-mode {
+/* Dark Mode Theme - UPDATED FROM html.dark-mode TO body.dark-mode */
+body.dark-mode {
     --primary-color: #4db8ff;
     --secondary-color: #9fa8da;
     --background-color: #121212;
@@ -354,74 +368,69 @@ footer {
     --text-color: #e0e0e0;
     --border-color: #333;
     --shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-.dark-mode body {
     color: var(--text-color);
     background-color: var(--background-color);
 }
 
-.dark-mode .card,
-.dark-mode article,
-.dark-mode .project-item,
-.dark-mode .link-card {
+body.dark-mode .card,
+body.dark-mode article,
+body.dark-mode .project-item,
+body.dark-mode .link-card {
     background-color: var(--surface-color);
     color: var(--text-color);
 }
 
-.dark-mode .reflection-card {
+body.dark-mode .reflection-card {
     background: #2d3748;
 }
 
-.dark-mode .reflection-card:hover {
+body.dark-mode .reflection-card:hover {
     background: #374151;
 }
 
-.dark-mode textarea,
-.dark-mode input[type="text"] {
+body.dark-mode textarea,
+body.dark-mode input[type="text"] {
     background: #2d3748;
     color: var(--text-color);
     border-color: #4a5568;
 }
 
-.dark-mode nav a:not(.active):hover {
+body.dark-mode nav a:not(.active):hover {
     background-color: #2d3748;
 }
 
-/* ======================================================== */
-/* 10. Responsive Design                                    */
-/* ======================================================== */
+body.dark-mode .error-message {
+    background: #2d3436;
+    border-left-color: #f39c12;
+}
+
+/* Responsive Design */
 @media (min-width: 768px) {
-    /* Navigation */
     header {
         padding: 1rem 2rem;
     }
-    
+
     nav ul {
         flex-direction: row;
         gap: 1rem;
     }
-    
+
     nav a {
         padding: 0.5rem 1.5rem;
     }
-    
-    /* Layout */
+
     main {
         padding: 2rem;
     }
-    
-    /* Hero Section */
+
     #hero h1 {
         font-size: 3rem;
     }
-    
-    /* Link Grid */
+
     .link-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    /* JSON Controls */
+
     .json-controls, .action-bar {
         flex-wrap: nowrap;
     }
@@ -431,14 +440,13 @@ footer {
     .link-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     #hero {
         padding: 4rem 2rem;
     }
 }
 
-/* 11. Utility Classes                                      */
-
+/* Utility Classes */
 .text-center { text-align: center; }
 .mt-1 { margin-top: 0.5rem; }
 .mt-2 { margin-top: 1rem; }
@@ -466,9 +474,4 @@ footer {
     border-radius: var(--border-radius);
     border-left: 4px solid #fdcb6e;
     margin: 1rem 0;
-}
-
-.dark-mode .error-message {
-    background: #2d3436;
-    border-left-color: #f39c12;
 }
