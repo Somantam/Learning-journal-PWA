@@ -475,3 +475,19 @@ body.dark-mode .error-message {
     border-left: 4px solid #fdcb6e;
     margin: 1rem 0;
 }
+
+/* Offline Notification Banner - Lab 7 Extra Feature */
+#offline-indicator {
+    display: none; /* Hidden by default */
+    background-color: #dc3545; /* Red warning color */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
