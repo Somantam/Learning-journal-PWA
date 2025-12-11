@@ -77,11 +77,11 @@ A fully installable Progressive Web Application (PWA) that serves as a reflectiv
 
 ## 🎯 Key Learning Outcomes
 
-- **[span_0](start_span)Service Worker Lifecycle:** Understanding install, activate, and fetch events[span_0](end_span)
-- **[span_1](start_span)Caching Strategies:** Implementing "Cache First" or "Network First" logic[span_1](end_span)
-- **[span_2](start_span)Offline UX:** Managing user experience when the network fails[span_2](end_span)
-- **[span_3](start_span)Frontend-Backend Integration:** Connecting Flask APIs with asynchronous JS[span_3](end_span)
-- **[span_4](start_span)PWA Configuration:** Configuring Manifests and ensuring secure contexts (HTTPS)[span_4](end_span)
+- **Service Worker Lifecycle:** Understanding install, activate, and fetch events
+- **Caching Strategies:** Implementing "Cache First" or "Network First" logic
+- **Offline UX:** Managing user experience when the network fails
+- **Frontend-Backend Integration:** Connecting Flask APIs with asynchronous JS
+- **PWA Configuration:** Configuring Manifests and ensuring secure contexts (HTTPS)
 
 ## 🌐 Live Demo
 
