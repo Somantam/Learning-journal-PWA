@@ -50,9 +50,41 @@ function displayLiveDate() {
 }
 
 // ========================================================
+// LAB 7: PWA FEATURES (Extra Feature: Offline Detection)
+// ========================================================
+function updateOnlineStatus() {
+    const indicator = document.getElementById('offline-indicator');
+
+    // Only run if the indicator exists in HTML
+    if (indicator) {
+        if (navigator.onLine) {
+            indicator.style.display = 'none'; // Hide if online
+        } else {
+            indicator.style.display = 'block'; // Show red banner if offline
+        }
+    }
+}
+
+// ========================================================
 // INITIALIZATION
 // ========================================================
 document.addEventListener('DOMContentLoaded', () => {
     loadNavigation();
     displayLiveDate();
+
+    // Check online status immediately on load
+    updateOnlineStatus();
 });
+
+// Listen for network changes (Lab 7 Extra Feature)
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+
+// --- PWA: Register Service Worker (Lab 7) ---
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker Registered!', reg))
+            .catch(err => console.log('Service Worker registration failed: ', err));
+    });
+}
