@@ -1,9 +1,11 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 import json
 import os
 from datetime import datetime
 
-# --- CONFIGURATION ---
+# ========================================================
+# CONFIGURATION
+# ========================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Data File Path: Data stored in /mysite/backend/reflections.json
@@ -13,7 +15,9 @@ DATA_FILE = os.path.join(DATA_DIR, "reflections.json")
 # Initialize Flask App (defaults to 'static' and 'templates')
 app = Flask(__name__)
 
-# --- JSON HELPER FUNCTIONS ---
+# ========================================================
+# JSON HELPER FUNCTIONS
+# ========================================================
 
 def load_reflections():
     """Reads reflections from reflections.json. Returns an empty list if file doesn't exist."""
@@ -36,7 +40,9 @@ def save_reflections(reflections):
     with open(DATA_FILE, "w") as f:
         json.dump(reflections, f, indent=4)
 
-# --- FLASK ROUTES (FIXED) ---
+# ========================================================
+# FLASK ROUTES (HTML PAGES)
+# ========================================================
 
 # Homepage Route
 @app.route("/")
@@ -62,7 +68,9 @@ def projects():
     """Serves the projects.html file."""
     return render_template("projects.html")
 
-# --- API ROUTES ---
+# ========================================================
+# API ROUTES (DATA HANDLING)
+# ========================================================
 
 # API GET Route: Returns all reflections
 @app.route("/api/reflections", methods=["GET"])
@@ -103,5 +111,16 @@ def delete_reflection():
         "deleted": deleted_reflection
     }), 200
 
+# ========================================================
+# LAB 7: PWA SERVICE WORKER ROUTE (FIXED)
+# ========================================================
+@app.route('/sw.js')
+def sw():
+    """Serves the Service Worker from the root scope, but reads it from static/js."""
+    # We point to 'static/js' because that is where you put your file.
+    return send_from_directory('static/js', 'sw.js')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+    
