@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Learning Journal</title>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#0069d9">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <div id="offline-indicator">⚠️ You are currently offline. Content may be outdated.</div>
 
     <header id="nav-placeholder">
         <button id="theme-toggle">Toggle Dark Mode</button>
@@ -15,6 +19,25 @@
     <main>
         <h1>My Projects Portfolio</h1>
         <p>A showcase of my creative computing and technical work developed during this unit.</p>
+
+         <section class="project-item">
+            <h2>Lab 7: Progressive Web App (PWA)</h2>
+            <p>Transformed the Learning Journal into a fully installable Progressive Web App with offline capabilities and network independence.</p>
+            <ul>
+                <li><strong>Service Worker:</strong> Implemented <code>sw.js</code> to cache shell assets (HTML, CSS, JS) for instant loading.</li>
+                <li><strong>Offline Support:</strong> Configured the Cache API to serve content even when the user has no internet connection.</li>
+                <li><strong>Installability:</strong> Added a <code>manifest.json</code> file with custom icons (`192px` & `512px`), allowing the app to be installed on mobile and desktop.</li>
+                <li><strong>Extra Feature:</strong> Built a real-time <strong>Offline Notification System</strong> that alerts users via a sticky banner when connectivity is lost.</li>
+                <li><strong>Backend Logic:</strong> Created a custom Flask route to serve the Service Worker from the root scope (`/sw.js`) to ensure full app control.</li>
+            </ul>
+            <p><strong>Technologies:</strong> Service Workers, Cache API, Web App Manifest, Flask, JavaScript Event Listeners.</p>
+            <div class="project-links">
+                <a href="https://github.com/Somantam/Learning-journal-PWA" target="_blank" class="project-link">GitHub Repo</a>
+                <a href="https://soman010.pythonanywhere.com/" target="_blank" class="project-link">Live Demo</a>
+                <a class="project-link project-status-completed">Completed</a>
+            </div>
+        </section>
+
 
         <!-- Lab 6 Project -->
         <section class="project-item">
