@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal | Learning Journal</title>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#0069d9">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <div id="offline-indicator">⚠️ You are currently offline. Content may be outdated.</div>
 
     <header id="nav-placeholder">
         <button id="theme-toggle">Toggle Dark Mode</button>
@@ -42,6 +46,22 @@
 
             <div id="json-reflections" class="reflections-list"></div>
         </section>
+
+        <article>
+            <h2>Week 7: PWA & Offline Implementation</h2>
+
+            <h3>1. Why is it useful to enhance your Flask app with PWA features?</h3>
+            <p>Enhancing the Flask app with PWA features is useful because it transforms a standard website into a reliable, installable application. By using a Web App Manifest, users can install the journal to their home screen like a native app. Service Workers allow the app to load instantly and function even without an internet connection, ensuring that the user's experience is not interrupted by poor network conditions.</p>
+
+            <h3>2. What did you use to support offline access and dynamic data?</h3>
+            <p>To support offline access, I utilized a <strong>Service Worker</strong> (<code>sw.js</code>). During the <code>install</code> phase, I cached critical static assets (HTML, CSS, JS, and images) using the Cache Storage API. For data handling, I used the Service Worker's <code>fetch</code> event listener to intercept network requests; if the network fails, the Service Worker retrieves the requested resources directly from the local cache.</p>
+
+            <h3>3. What extra feature did you add, and why?</h3>
+            <p>I implemented an <strong>Offline Detection Banner</strong> as my extra feature. Using the <code>navigator.onLine</code> property and window event listeners (<code>online</code>/<code>offline</code>), a red warning banner appears automatically when the internet connection drops. I added this to improve User Experience (UX) by giving the user immediate visual feedback that they are viewing cached content and cannot save new entries.</p>
+
+            <h3>4. Did you face any challenges deploying your PWA, and how did you solve them?</h3>
+            <p>The main challenge was the <strong>Service Worker Scope</strong>. Since my <code>sw.js</code> file was physically located in the <code>static/js/</code> folder, it couldn't control the HTML pages in the root directory by default. I solved this by configuring a specific route in Flask (<code>@app.route('/sw.js')</code>) to serve the file from the root URL, essentially "tricking" the browser into accepting the correct scope while keeping my file structure organized.</p>
+        </article>
 
         <article>
             <h2>Week 6: Flask Backend Integration</h2>
