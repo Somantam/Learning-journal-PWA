@@ -48,7 +48,7 @@ A fully installable **Progressive Web Application (PWA)** that serves as a refle
 - **PythonAnywhere** for hosting  
 - **GitHub** for version control  
 
----
+```
 
 ## 📁 **Project Structure**
 
@@ -79,7 +79,6 @@ A fully installable **Progressive Web Application (PWA)** that serves as a refle
 └── timer.js          # Focus Timer logic (Mini Project)
 
 ```
----
 
 ## 🚀 **API Endpoints**
 
@@ -91,7 +90,7 @@ A fully installable **Progressive Web Application (PWA)** that serves as a refle
 | GET    | `/sw.js`                   | Serve Service Worker from root scope |
 | GET    | `/timer`                   | Serve the Focus Timer page           |
 
----
+```
 
 ## 🎯 **Key Learning Outcomes**
 
@@ -101,14 +100,14 @@ A fully installable **Progressive Web Application (PWA)** that serves as a refle
 - **Mobile‑First Design:** Responsive layouts for all screens  
 - **Cloud Deployment:** WSGI + static file config on PythonAnywhere  
 
----
+```
 
 ## 🌐 **Live Demo**
 
 - **Live Application:** https://soman010.pythonanywhere.com  
 - **GitHub Repository:** https://github.com/Somantam/Learning-journal-PWA  
 
----
+```
 
 ## 📝 **Usage**
 
@@ -118,7 +117,7 @@ A fully installable **Progressive Web Application (PWA)** that serves as a refle
 - **Journal:** Write reflections synced to server when online  
 - **Theme:** Toggle Dark Mode anytime  
 
----
+```
 
 ## 👨‍💻 **Developer**
 
