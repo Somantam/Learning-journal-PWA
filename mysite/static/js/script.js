@@ -1,7 +1,7 @@
-// ========================================================
+
 // LAB 3: CORE JAVASCRIPT FUNCTIONS
 // Handles Navigation and Live Date
-// ========================================================
+
 
 // NOTE: toggleTheme() is defined in storage.js and called here
 
@@ -15,6 +15,7 @@ function loadNavigation() {
                 <li><a href="/" class="${currentPath === '/' ? 'active' : ''}">Home</a></li>
                 <li><a href="/journal" class="${currentPath === '/journal' ? 'active' : ''}">Journal</a></li>
                 <li><a href="/projects" class="${currentPath === '/projects' ? 'active' : ''}">Projects</a></li>
+                <li><a href="/timer" class="${currentPath === '/timer' ? 'active' : ''}">Timer</a></li>
                 <li><a href="/about" class="${currentPath === '/about' ? 'active' : ''}">About</a></li>
             </ul>
         </nav>
@@ -49,9 +50,8 @@ function displayLiveDate() {
     }
 }
 
-// ========================================================
+
 // LAB 7: PWA FEATURES (Extra Feature: Offline Detection)
-// ========================================================
 function updateOnlineStatus() {
     const indicator = document.getElementById('offline-indicator');
 
@@ -65,9 +65,8 @@ function updateOnlineStatus() {
     }
 }
 
-// ========================================================
+
 // INITIALIZATION
-// ========================================================
 document.addEventListener('DOMContentLoaded', () => {
     loadNavigation();
     displayLiveDate();
