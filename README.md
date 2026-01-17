@@ -107,7 +107,7 @@ A fully installable **Progressive Web Application (PWA)** that serves as a refle
 - **Live Application:** https://soman010.pythonanywhere.com  
 - **GitHub Repository:** https://github.com/Somantam/Learning-journal-PWA  
 
-```
+
 
 ## 📝 **Usage**
 
@@ -117,10 +117,11 @@ A fully installable **Progressive Web Application (PWA)** that serves as a refle
 - **Journal:** Write reflections synced to server when online  
 - **Theme:** Toggle Dark Mode anytime  
 
-```
+
 
 ## 👨‍💻 **Developer**
 
 **Soman Tamang**  
 BSc (Hons) Computer Science Student  
 Built for **Mobile Application Development – Final Portfolio**
+```
