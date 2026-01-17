@@ -47,6 +47,23 @@
             <div id="json-reflections" class="reflections-list"></div>
         </section>
 
+                <article>
+            <h2>Mini Project: Focus Timer</h2>
+
+            <h3>1. What additional features did you add to your Learning Journal?</h3>
+            <p>For my mini-project, I developed a "Focus Timer" (Pomodoro Clock) directly integrated into the PWA. This feature serves as a personal productivity tool designed to help users manage their study sessions effectively. The timer allows users to select from preset durations—specifically a standard 25-minute focus session, a short 5-minute break, or a longer 15-minute break. Key functionalities include a live digital countdown, state controls (Start, Pause, Reset), and browser notifications that alert the user when their session is complete.</p>
+
+            <h3>2. Why did you choose your mini project idea?</h3>
+            <p>I chose the Focus Timer because it aligns perfectly with the core purpose of the application: a "Learning Journal." While the existing features allowed users to record what they learned, the app lacked a tool to facilitate the actual process of learning. By adding a Pomodoro timer, the application transitions from a passive recording log to an active study companion. From a technical perspective, I selected this idea to demonstrate mastery of JavaScript Time Intervals and asynchronous state management, moving beyond simple CRUD operations to solve a real-time problem.</p>
+
+            <h3>3. What technical challenges did you face and how did you solve them?</h3>
+            <p>The most significant technical challenge was state persistence across navigation. Initially, the timer would reset to the default 25:00 whenever I navigated to the Journal page to write an entry. To solve this, I implemented a strategy using the Local Storage API where I saved the target "end timestamp" rather than just the seconds remaining. This allowed the timer to recalculate the correct remaining time immediately upon reloading the page. I also faced a CSS conflict where my transparent buttons were invisible against the white background; I resolved this by using specific CSS overrides to enforce the primary text color.</p>
+
+            <h3>4. What would you improve if given more time?</h3>
+            <p>If I had more time, I would implement automatic journal integration. Currently, the timer simply alerts the user when finished; an improved version would automatically create a "Draft Entry" in the Journal section stating that a session was completed. Additionally, I would enhance the offline reliability of the notifications by moving the countdown logic into a Service Worker or Web Worker. This would ensure that the timer continues to run and alerts the user even if the browser tab is minimized or closed.</p>
+        </article>
+
+
         <article>
             <h2>Week 7: PWA & Offline Implementation</h2>
 
