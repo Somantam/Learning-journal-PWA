@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Timer | Learning Journal</title>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#0069d9">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="offline-indicator">⚠️ You are currently offline. Content may be outdated.</div>
+
+    <header id="nav-placeholder">
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </header>
+
+    <main>
+        <h1>Focus Timer</h1>
+        <p>Boost your productivity using the Pomodoro technique. Work for 25 minutes, then take a 5-minute break.</p>
+
+        <section class="card text-center timer-container">
+            <div id="timer-display">25:00</div>
+
+            <div class="timer-controls">
+                <button id="start-btn" class="cta-button">Start Focus</button>
+                <button id="pause-btn" class="action-btn btn-secondary">Pause</button>
+                <button id="reset-btn" class="action-btn btn-secondary">Reset</button>
+            </div>
+
+            <div class="timer-modes mt-3">
+                <button class="project-link" onclick="setTimer(25)">25m Focus</button>
+                <button class="project-link" onclick="setTimer(5)">5m Break</button>
+                <button class="project-link" onclick="setTimer(15)">15m Break</button>
+            </div>
+        </section>
+
+        <article>
+            <h2>How to use this tool</h2>
+            <ul>
+                <li><strong>Step 1:</strong> Select "25m Focus" and click Start.</li>
+                <li><strong>Step 2:</strong> Work until the timer alerts you.</li>
+                <li><strong>Step 3:</strong> Take a "5m Break" to refresh your mind.</li>
+                <li><strong>Step 4:</strong> Repeat! Record your progress in the <a href="{{ url_for('journal') }}">Journal</a>.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Soman Tamang. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/storage.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+</body>
+</html>
