@@ -491,3 +491,234 @@ body.dark-mode .error-message {
     font-weight: bold;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
+
+/* Timer Page Styles */
+.timer-container {
+    padding: 3rem 1rem;
+}
+
+#timer-display {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: monospace;
+    margin: 1rem 0;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- FIXED SECTION BELOW --- */
+.timer-modes button {
+    font-size: 0.8rem;
+    background: transparent;
+    color: var(--primary-color) !important; /* Added !important to make text visible */
+    border: 1px solid var(--primary-color);
+}
+
+.timer-modes button:hover {
+    background: var(--primary-color);
+    color: white !important;
+}
+
+/* ====== ANIMATED HOMEPAGE STYLES WITH CRITICAL FIXES ====== */
+
+/* 1. Animated Gradient Hero - DARKER VERSION */
+.animated-hero {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    color: white !important;
+
+    /* SIMPLER BLUE GRADIENT - NO ANIMATION */
+    background: linear-gradient(135deg, #0069d9 0%, #3f51b5 100%) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. FIXED: Hero Heading - CRITICAL VISIBILITY FIX */
+.animated-hero h1,
+#typing-text {
+    color: #ffffff !important; /* FORCE WHITE */
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow:
+        0 1px 0 #000,
+        0 2px 0 #000,
+        0 3px 10px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    min-height: 80px; /* Reserve space */
+}
+
+/* 3. FIXED: Subtitle */
+.animated-hero .subtitle {
+    color: #f8f9fa !important; /* Off-white */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    opacity: 1 !important;
+}
+
+/* 4. FIXED: Date Badge */
+.date-badge {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.4) !important; /* Darker background */
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    color: white !important; /* Force white text */
+    margin-bottom: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9) !important;
+}
+
+/* 5. FIXED: Quote Box - DARK TEXT ON WHITE BACKGROUND */
+.quote-box {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #212529 !important;
+    padding: 1.5rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color) !important;
+
+    /* Optional: Add a subtle inner shadow */
+    box-shadow:
+        inset 0 1px 3px rgba(255, 255, 255, 0.8),
+        0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Force ALL text inside quote box to be dark */
+.quote-box em,
+.quote-box i,
+.quote-box * {
+    color: #212529 !important;
+}
+
+.quote-icon {
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* 6. Feature Cards (Grid) */
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card h3 {
+    color: var(--text-color);
+    margin-top: 0.5rem;
+}
+
+.feature-card p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* 7. Entrance Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger Delays */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
+
+/* ====== DARK MODE FIXES ====== */
+body.dark-mode .animated-hero {
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027);
+    background-size: 400% 400%;
+}
+
+/* Dark mode quote box */
+body.dark-mode .quote-box {
+    background: rgba(45, 55, 72, 0.98) !important;
+    color: #e0e0e0 !important;
+    border-color: var(--primary-color) !important;
+}
+
+body.dark-mode .quote-box em,
+body.dark-mode .quote-box i,
+body.dark-mode .quote-box * {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .feature-card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .feature-card p {
+    color: #a0aec0;
+}
+
+/* This will override ANY previous styles */
+#typing-text {
+    color: #ffffff !important;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.animated-hero .hero-content * {
+    color: inherit !important;
+}
+
+/* Emergency backup: if still not visible, add outline */
+#typing-text:not(:empty) {
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.5);
+    }
