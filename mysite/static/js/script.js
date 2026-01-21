@@ -1,11 +1,8 @@
-
-// LAB 3: CORE JAVASCRIPT FUNCTIONS
-// Handles Navigation and Live Date
-
+// LAB 3 & HOME PAGE ANIMATIONS
 
 // NOTE: toggleTheme() is defined in storage.js and called here
 
-// --- Navigation Insertion (Lab 3) ---
+// --- Navigation Insertion ---
 function loadNavigation() {
     const currentPath = window.location.pathname;
 
@@ -24,10 +21,7 @@ function loadNavigation() {
 
     const navPlaceholder = document.getElementById('nav-placeholder');
     if (navPlaceholder) {
-        // Insert navigation
         navPlaceholder.innerHTML = navHTML;
-
-        // Listener for the theme toggle button
         const toggleButton = document.getElementById('theme-toggle');
         if (toggleButton) {
             toggleButton.addEventListener('click', toggleTheme);
@@ -35,32 +29,44 @@ function loadNavigation() {
     }
 }
 
-// --- Live Date (Lab 3) ---
+// --- Live Date ---
 function displayLiveDate() {
     const dateElement = document.getElementById('live-date');
     if (dateElement) {
         const now = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const dateString = now.toLocaleDateString('en-US', options);
-
-        dateElement.textContent = `Today is: ${dateString}`;
-        dateElement.style.marginTop = '15px';
-        dateElement.style.fontWeight = '600';
-        dateElement.style.color = 'var(--primary-color)';
+        dateElement.textContent = `Today is: ${now.toLocaleDateString('en-US', options)}`;
     }
 }
 
+// --- Dynamic Greeting ---
+function initDynamicGreeting() {
+    const typingElement = document.getElementById('typing-text');
+    if (!typingElement) return;
 
-// LAB 7: PWA FEATURES (Extra Feature: Offline Detection)
+    const hour = new Date().getHours();
+    let greeting = "Hello";
+
+    if (hour < 12) greeting = "Good Morning";
+    else if (hour < 18) greeting = "Good Afternoon";
+    else greeting = "Good Evening";
+
+    // Set text immediately - NO TYPING ANIMATION
+    typingElement.textContent = `${greeting}, I'm Soman!`;
+
+    // Force visibility
+    typingElement.style.color = "#ffffff";
+    typingElement.style.textShadow = "0 2px 8px rgba(0,0,0,0.8)";
+}
+
+// --- Lab 7: Offline Detection ---
 function updateOnlineStatus() {
     const indicator = document.getElementById('offline-indicator');
-
-    // Only run if the indicator exists in HTML
     if (indicator) {
         if (navigator.onLine) {
-            indicator.style.display = 'none'; // Hide if online
+            indicator.style.display = 'none';
         } else {
-            indicator.style.display = 'block'; // Show red banner if offline
+            indicator.style.display = 'block';
         }
     }
 }
@@ -70,16 +76,13 @@ function updateOnlineStatus() {
 document.addEventListener('DOMContentLoaded', () => {
     loadNavigation();
     displayLiveDate();
-
-    // Check online status immediately on load
     updateOnlineStatus();
+    initDynamicGreeting(); // Start the animation
 });
 
-// Listen for network changes (Lab 7 Extra Feature)
 window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 
-// --- PWA: Register Service Worker (Lab 7) ---
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
