@@ -8,6 +8,8 @@
   <meta name="theme-color" content="#0069d9">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <div id="offline-indicator">⚠️ You are currently offline. Content may be outdated.</div>
@@ -17,21 +19,52 @@
   </header>
 
   <main>
-    <section id="hero">
-      <h1>Hello! I'm Soman Tamang</h1>
-      <p>Welcome to my Learning Journal PWA.</p>
-      <p id="live-date" class="text-center mt-1 mb-2">Loading date...</p>
-      <p id="quote-container" class="text-center mb-3"><em>Fetching quote...</em></p>
+    <!-- Dynamic Hero Section -->
+    <section id="hero" class="animated-hero">
+      <div class="hero-content">
+        <!-- The greeting will be updated by JS -->
+        <h1 id="typing-text">Welcome!</h1>
+        <p class="subtitle fade-in-up delay-1">My Learning Journal PWA</p>
+
+        <!-- Live Date (Preserved Feature) -->
+        <div id="live-date" class="date-badge fade-in-up delay-2">Loading date...</div>
+        <!-- Quote API (Preserved Feature) - WITH INLINE STYLE -->
+        <div id="quote-container" class="quote-box fade-in-up delay-3"
+         style="display: block !important;
+            color: #000000 !important;
+            background: #ffffff !important;
+            border: 2px solid #0069d9 !important;">
+    <i class="fas fa-quote-left quote-icon"></i>
+    <em style="color: #000000 !important;">Fetching daily wisdom...</em>
+</div>
+
+      </div>
     </section>
 
-    <section class="card">
+    <!-- Navigation Cards with Hover Effects -->
+    <section class="link-grid fade-in-up delay-4">
+      <a href="{{ url_for('journal') }}" class="link-card feature-card">
+        <div class="card-icon"><i class="fas fa-book-open"></i></div>
+        <h3>Journal Entries</h3>
+        <p>Read my weekly reflections.</p>
+      </a>
+
+      <a href="{{ url_for('projects') }}" class="link-card feature-card">
+        <div class="card-icon"><i class="fas fa-code"></i></div>
+        <h3>Projects Portfolio</h3>
+        <p>See my PWA and code work.</p>
+      </a>
+
+      <a href="{{ url_for('timer') }}" class="link-card feature-card">
+        <div class="card-icon"><i class="fas fa-clock"></i></div>
+        <h3>Focus Timer</h3>
+        <p>Boost productivity now.</p>
+      </a>
+    </section>
+
+    <section class="card fade-in-up delay-5">
       <h2>About this Site</h2>
       <p>This progressive web app (PWA) serves as a learning log of my journey through the Mobile Application Development unit — a personal and reflective space to showcase my creative and technical work.</p>
-    </section>
-
-    <section class="link-grid">
-      <a href="{{ url_for('journal') }}" class="link-card">View Journal Entries</a>
-      <a href="{{ url_for('projects') }}" class="link-card">Explore My Projects</a>
     </section>
   </main>
 
@@ -45,3 +78,4 @@
   <script src="{{ url_for('static', filename='js/thirdparty.js') }}"></script>
 </body>
 </html>
+
